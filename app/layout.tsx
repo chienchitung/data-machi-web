@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./brand.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://data-machi.com"),
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
   },
   description:
     "從 RAG、Tool Use、Agent 到 Agentic Workflow，逐步打造真正能完成工作的企業 AI 知識工作流。",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Data Machi｜企業 AI 知識工作流",
     description:
