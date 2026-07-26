@@ -1,0 +1,30 @@
+/* Keep the website and Mintlify documentation on the same brand assets. */
+.brand {
+  display: inline-block;
+  width: 174px;
+  height: 38px;
+  min-width: 174px;
+  gap: 0;
+  background: url('/logo.svg') left center / contain no-repeat;
+}
+
+.brand > * {
+  visibility: hidden;
+}
+
+.brand-mark,
+.mini-logo {
+  color: transparent;
+  background: url('/favicon.svg') center / contain no-repeat;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 0;
+}
+
+@media (max-width: 720px) {
+  .brand {
+    width: 146px;
+    height: 32px;
+    min-width: 146px;
+  }
+}
