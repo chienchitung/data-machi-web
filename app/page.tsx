@@ -265,7 +265,7 @@ export default function Home() {
               走到企業級 AI 產品。
             </h2>
             <p>每一次能力升級，都代表系統需要新增不同的資料架構、工具權限、決策控制與可靠性設計。</p>
-            <a href="/docs" className="framework-link">閱讀完整架構 <span>↗</span></a>
+            <a href="/docs" className="framework-link">閱讀完整架構</a>
           </div>
 
           <div className="capability-map">
@@ -311,7 +311,7 @@ export default function Home() {
                 AI 知識地圖。
               </h2>
             </div>
-            <a className="text-link" href="/docs">查看所有文章 <span>↗</span></a>
+            <a className="text-link" href="/docs">查看所有文章</a>
           </div>
 
           <div className="learning-grid">
@@ -363,10 +363,6 @@ export default function Home() {
                 {navLinks.map((link) => (
                   <a key={link.href} href={link.href}>{link.label}</a>
                 ))}
-              </div>
-              <div className="footer-nav-group">
-                <span>資源</span>
-                <a href="/docs">Documentation</a>
               </div>
             </nav>
           </div>
