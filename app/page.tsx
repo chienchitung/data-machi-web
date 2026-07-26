@@ -1,3 +1,5 @@
+import { MobileNav } from "./mobile-nav";
+
 const learningPaths = [
   {
     number: "01",
@@ -98,6 +100,8 @@ export default function Home() {
             ))}
           </nav>
 
+          <MobileNav links={navLinks} />
+
           <a className="nav-cta" href="/docs">
             開始閱讀 <span aria-hidden="true">↗</span>
           </a>
@@ -147,7 +151,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="product-stage" aria-label="Data Machi 產品介面示意">
+          <div className="product-stage" aria-hidden="true">
             <div className="product-window">
               <div className="window-bar">
                 <div className="window-brand">
@@ -198,7 +202,7 @@ export default function Home() {
                     <div className="citation-row"><span>[1] Sales Data · Updated today</span><span>[2] Knowledge Base</span><span>[3] Project Board</span></div>
                   </div>
 
-                  <div className="prompt-bar"><span>Ask a follow-up question...</span><button aria-label="送出問題">↑</button></div>
+                  <div className="prompt-bar"><span>Ask a follow-up question...</span><span className="prompt-send">↑</span></div>
                 </div>
               </div>
             </div>
