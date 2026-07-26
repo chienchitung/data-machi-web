@@ -52,6 +52,12 @@ const capabilities = [
   { name: "Product", description: "可靠交付" },
 ];
 
+const navLinks = [
+  { href: "#product", label: "產品理念" },
+  { href: "#framework", label: "能力模型" },
+  { href: "#learning", label: "30 天系列" },
+];
+
 const useCases = [
   {
     label: "CROSS-SOURCE QUERY",
@@ -87,9 +93,9 @@ export default function Home() {
           </a>
 
           <nav className="nav-links" aria-label="主要導覽">
-            <a href="#product">產品理念</a>
-            <a href="#framework">能力模型</a>
-            <a href="#learning">30 天系列</a>
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href}>{link.label}</a>
+            ))}
           </nav>
 
           <a className="nav-cta" href="/docs">
@@ -111,8 +117,14 @@ export default function Home() {
             </div>
 
             <h1>
-              把企業知識、工具與決策，
-              <span>串成真正能工作的 AI。</span>
+              把企業知識、
+              <br />
+              工具與決策，
+              <span>
+                串成真正能工作的
+                <br />
+                AI。
+              </span>
             </h1>
 
             <p className="hero-description">
@@ -207,7 +219,11 @@ export default function Home() {
         <div className="section-intro">
           <div>
             <span className="section-kicker">PRODUCT THINKING</span>
-            <h2>企業 AI 的價值，不只在模型本身。</h2>
+            <h2>
+              企業 AI 的價值，
+              <br />
+              不只在模型本身。
+            </h2>
           </div>
           <p>真正能落地的 AI 產品，需要同時處理知識、計算、工具、決策與控制。Data Machi 將這些能力放進同一張系統地圖。</p>
         </div>
@@ -243,7 +259,11 @@ export default function Home() {
         <div className="framework-inner section-shell">
           <div className="framework-copy">
             <span className="section-kicker section-kicker-light">MATURITY MODEL</span>
-            <h2>從聊天介面，走到企業級 AI 產品。</h2>
+            <h2>
+              從聊天介面，
+              <br />
+              走到企業級 AI 產品。
+            </h2>
             <p>每一次能力升級，都代表系統需要新增不同的資料架構、工具權限、決策控制與可靠性設計。</p>
             <a href="/docs" className="framework-link">閱讀完整架構 <span>↗</span></a>
           </div>
@@ -283,7 +303,14 @@ export default function Home() {
       <section className="learning-section" id="learning">
         <div className="learning-inner section-shell">
           <div className="section-intro learning-intro">
-            <div><span className="section-kicker">30-DAY SERIES</span><h2>30 天，建立一張完整的企業 AI 知識地圖。</h2></div>
+            <div>
+              <span className="section-kicker">30-DAY SERIES</span>
+              <h2>
+                30 天，建立一張完整的企業
+                <br />
+                AI 知識地圖。
+              </h2>
+            </div>
             <a className="text-link" href="/docs">查看所有文章 <span>↗</span></a>
           </div>
 
@@ -304,16 +331,53 @@ export default function Home() {
       <section className="final-section section-shell">
         <div className="final-card">
           <div className="final-orb" aria-hidden="true" />
-          <div><span className="section-kicker section-kicker-light">START BUILDING</span><h2>從第一天開始，建立真正能完成工作的企業 AI。</h2><p>30 天，從 RAG 一路走到 Agentic Workflow 與產品化。</p></div>
+          <div>
+            <span className="section-kicker section-kicker-light">START BUILDING</span>
+            <h2>
+              從第一天開始，
+              <br />
+              建立真正能完成工作的
+              <br />
+              企業 AI。
+            </h2>
+            <p>30 天，從 RAG 一路走到 Agentic Workflow 與產品化。</p>
+          </div>
           <a className="button button-light" href="/docs">開始閱讀 <span>↗</span></a>
         </div>
       </section>
 
-      <footer className="site-footer section-shell">
-        <a className="brand" href="#top"><span className="brand-mark">D</span><span className="brand-copy"><strong>Data Machi</strong><small>Enterprise AI Workflow</small></span></a>
-        <p>From RAG to Agentic Workflow.</p>
-        <div className="footer-links"><a href="/docs">Documentation</a></div>
-        <small>© {new Date().getFullYear()} Data Machi.</small>
+      <footer className="site-footer">
+        <div className="footer-shell section-shell">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a className="brand" href="#top" aria-label="Data Machi 首頁">
+                <span className="brand-mark">D</span>
+                <span className="brand-copy"><strong>Data Machi</strong><small>Enterprise AI Workflow</small></span>
+              </a>
+              <p>從 RAG 到 Agentic Workflow，30 天建立真正能完成工作的企業 AI 知識工作流。</p>
+            </div>
+
+            <nav className="footer-nav" aria-label="footer">
+              <div className="footer-nav-group">
+                <span>探索</span>
+                {navLinks.map((link) => (
+                  <a key={link.href} href={link.href}>{link.label}</a>
+                ))}
+              </div>
+              <div className="footer-nav-group">
+                <span>資源</span>
+                <a href="/docs">Documentation</a>
+              </div>
+            </nav>
+          </div>
+
+          <div className="footer-bottom">
+            <small>© {new Date().getFullYear()} Data Machi. All rights reserved.</small>
+            <a className="back-to-top" href="#top">
+              回到頂端 <span aria-hidden="true">↑</span>
+            </a>
+          </div>
+        </div>
       </footer>
     </main>
   );
