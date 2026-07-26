@@ -90,7 +90,6 @@ export default function Home() {
             <a href="#product">產品理念</a>
             <a href="#framework">能力模型</a>
             <a href="#learning">30 天系列</a>
-            <a href="#about">關於</a>
           </nav>
 
           <a className="nav-cta" href="/docs">
@@ -302,19 +301,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-section section-shell" id="about">
-        <div className="about-card">
-          <div className="about-profile">
-            <span className="avatar">JT</span>
-            <div><span className="section-kicker">CREATOR</span><h2>Jackie Tung</h2><p>Data Analyst · AI Builder · Knowledge Workflow Designer</p></div>
-          </div>
-          <div className="about-content">
-            <p>專注於資料分析、商業洞察、AI 應用與企業知識工作流設計。Data Machi 將實際工作中的分析思維、系統設計與 AI 工程經驗，整理成可以理解、實作與持續迭代的學習路徑。</p>
-            <a href="https://github.com/chienchitung" target="_blank" rel="noreferrer">GitHub Profile <span>↗</span></a>
-          </div>
-        </div>
-      </section>
-
       <section className="final-section section-shell">
         <div className="final-card">
           <div className="final-orb" aria-hidden="true" />
@@ -326,8 +312,8 @@ export default function Home() {
       <footer className="site-footer section-shell">
         <a className="brand" href="#top"><span className="brand-mark">D</span><span className="brand-copy"><strong>Data Machi</strong><small>Enterprise AI Workflow</small></span></a>
         <p>From RAG to Agentic Workflow.</p>
-        <div className="footer-links"><a href="/docs">Documentation</a><a href="https://github.com/chienchitung/data-machi-web" target="_blank" rel="noreferrer">GitHub</a></div>
-        <small>© {new Date().getFullYear()} Data Machi. Built by Jackie Tung.</small>
+        <div className="footer-links"><a href="/docs">Documentation</a></div>
+        <small>© {new Date().getFullYear()} Data Machi.</small>
       </footer>
     </main>
   );
