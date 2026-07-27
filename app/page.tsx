@@ -102,7 +102,7 @@ export default function Home() {
 
           <MobileNav links={navLinks} />
 
-          <a className="nav-cta" href="/docs">
+          <a className="nav-cta" href="https://data-machi.com/docs">
             開始閱讀 <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -136,7 +136,7 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="/docs">
+              <a className="button button-primary" href="https://data-machi.com/docs">
                 開始閱讀 30 天系列 <span aria-hidden="true">↗</span>
               </a>
               <a className="button button-secondary" href="#product">
@@ -269,7 +269,7 @@ export default function Home() {
               走到企業級 AI 產品。
             </h2>
             <p>每一次能力升級，都代表系統需要新增不同的資料架構、工具權限、決策控制與可靠性設計。</p>
-            <a href="/docs" className="framework-link">閱讀完整架構</a>
+            <a href="https://data-machi.com/docs" className="framework-link">閱讀完整架構</a>
           </div>
 
           <div className="capability-map">
@@ -315,7 +315,7 @@ export default function Home() {
                 AI 知識地圖。
               </h2>
             </div>
-            <a className="text-link" href="/docs">查看所有文章</a>
+            <a className="text-link" href="https://data-machi.com/docs">查看所有文章</a>
           </div>
 
           <div className="learning-grid">
@@ -325,7 +325,7 @@ export default function Home() {
                 <div className="learning-tag">{item.tag}</div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <a href="/docs" aria-label={`閱讀${item.title}`}>閱讀這一篇 <span>→</span></a>
+                <a href="https://data-machi.com/docs" aria-label={`閱讀${item.title}`}>閱讀這一篇 <span>→</span></a>
               </article>
             ))}
           </div>
@@ -346,7 +346,7 @@ export default function Home() {
             </h2>
             <p>30 天，從 RAG 一路走到 Agentic Workflow 與產品化。</p>
           </div>
-          <a className="button button-light" href="/docs">開始閱讀 <span>↗</span></a>
+          <a className="button button-light" href="https://data-machi.com/docs">開始閱讀 <span>↗</span></a>
         </div>
       </section>
 
