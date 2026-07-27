@@ -234,7 +234,13 @@ export default function Home() {
 
         <div className="value-grid">
           <article className="value-card value-card-highlight">
-            <div className="value-icon"><span className="database-shape" /></div>
+            <div className="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="6" rx="7" ry="3" />
+                <path d="M5 6v5c0 1.66 3.13 3 7 3s7-1.34 7-3V6" />
+                <path d="M5 11v5c0 1.66 3.13 3 7 3s7-1.34 7-3v-5" />
+              </svg>
+            </div>
             <span className="card-number">01</span>
             <h3>連接企業知識</h3>
             <p>把散落在文件、表格與系統中的資訊，轉成 AI 能檢索、理解與引用的知識層。</p>
@@ -242,7 +248,11 @@ export default function Home() {
           </article>
 
           <article className="value-card">
-            <div className="value-icon"><span className="logic-shape">◇</span></div>
+            <div className="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 3 19 12 12 21 5 12Z" />
+              </svg>
+            </div>
             <span className="card-number">02</span>
             <h3>拆清楚決策邏輯</h3>
             <p>讓程式負責計算與規則，模型負責理解意圖與組織語言，降低幻覺與錯誤判斷。</p>
@@ -250,7 +260,12 @@ export default function Home() {
           </article>
 
           <article className="value-card">
-            <div className="value-icon"><span className="action-shape">↗</span></div>
+            <div className="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7" />
+                <path d="M9 7h8v8" />
+              </svg>
+            </div>
             <span className="card-number">03</span>
             <h3>推進真實工作</h3>
             <p>從找資料走向呼叫工具、更新任務與完成流程，讓 AI 成為可以協作的工作夥伴。</p>
