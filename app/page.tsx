@@ -7,6 +7,7 @@ const learningPaths = [
     title: "AI 與工作",
     description: "先釐清企業真正需要的不是聊天機器人，而是能完成知識工作的系統。",
     tag: "FOUNDATION",
+    href: "https://www.data-machi.com/docs/30-days/day-01-enterprise-ai-is-not-chatbot",
   },
   {
     number: "02",
@@ -14,6 +15,7 @@ const learningPaths = [
     title: "企業知識檢索",
     description: "從文件解析、RAG 到混合搜尋，建立可追溯的企業知識層。",
     tag: "KNOWLEDGE",
+    href: "https://www.data-machi.com/docs/30-days/day-06-what-is-rag",
   },
   {
     number: "03",
@@ -21,6 +23,7 @@ const learningPaths = [
     title: "工具整合",
     description: "串接 Google Sheets、Confluence、Trello 與日常企業系統。",
     tag: "TOOLS",
+    href: "https://www.data-machi.com/docs/30-days/day-11-rag-vs-tool-use",
   },
   {
     number: "04",
@@ -28,6 +31,7 @@ const learningPaths = [
     title: "Agent 決策",
     description: "理解 ReAct、Coordinator、記憶、釐清與驗證如何一起運作。",
     tag: "AGENT",
+    href: "https://www.data-machi.com/docs/30-days/day-16-when-tools-become-agent",
   },
   {
     number: "05",
@@ -35,6 +39,7 @@ const learningPaths = [
     title: "可控工作流",
     description: "用 LangGraph、狀態與人工審核，把黑箱決策變成透明流程。",
     tag: "WORKFLOW",
+    href: "https://www.data-machi.com/docs/30-days/day-21-why-agentexecutor-is-not-enough",
   },
   {
     number: "06",
@@ -42,6 +47,7 @@ const learningPaths = [
     title: "企業級產品",
     description: "補上可靠性、Agent UX、安全、測試與部署的最後一哩路。",
     tag: "PRODUCT",
+    href: "https://www.data-machi.com/docs/30-days/day-26-timeout-retry-fallback",
   },
 ];
 
@@ -340,7 +346,7 @@ export default function Home() {
                 <div className="learning-tag">{item.tag}</div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <a href="https://www.data-machi.com/docs" aria-label={`閱讀${item.title}`}>閱讀這一篇 <span>→</span></a>
+                <a href={item.href} aria-label={`閱讀${item.title}`}>閱讀這一篇 <span>→</span></a>
               </article>
             ))}
           </div>
@@ -375,15 +381,6 @@ export default function Home() {
               </a>
               <p>從 RAG 到 Agentic Workflow，30 天建立真正能完成工作的企業 AI 知識工作流。</p>
             </div>
-
-            <nav className="footer-nav" aria-label="footer">
-              <div className="footer-nav-group">
-                <span>探索</span>
-                {navLinks.map((link) => (
-                  <a key={link.href} href={link.href}>{link.label}</a>
-                ))}
-              </div>
-            </nav>
           </div>
 
           <div className="footer-bottom">
