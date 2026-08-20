@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
           <p>
             若您對本隱私政策有任何疑問或建議，歡迎透過以下方式與我們聯繫：
             {" "}
-            <a href="mailto:hello@data-machi.com">hello@data-machi.com</a>
+            <a href="mailto:support@data-machi.com">support@data-machi.com</a>
           </p>
         </div>
       </section>

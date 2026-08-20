@@ -10,7 +10,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <a className="brand" href="#top" aria-label="Data Machi 首頁">
+        <a className="brand" href="/" aria-label="Data Machi 首頁">
           <span className="brand-mark">D</span>
           <span className="brand-copy">
             <strong>Data Machi</strong>
