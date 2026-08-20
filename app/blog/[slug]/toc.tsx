@@ -35,7 +35,7 @@ export function BlogToc({ headings }: { headings: BlogHeading[] }) {
       <span className="blog-toc-label">本篇大綱</span>
       <ul>
         {headings.map((heading) => (
-          <li key={heading.id} className={heading.level === 3 ? "blog-toc-sub" : undefined}>
+          <li key={heading.id}>
             <a
               href={`#${heading.id}`}
               className={activeId === heading.id ? "is-active" : undefined}

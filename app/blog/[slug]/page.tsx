@@ -101,7 +101,7 @@ export default async function BlogPost({
           <a className="blog-back-top" href="/blog">← 回到 Blog</a>
         </div>
 
-        <div className="policy-header">
+        <div className="policy-header blog-post-header">
           <div className="blog-post-meta">
             <span className="section-kicker">{post.tag}</span>
             <span className="meta-dot">/</span>
@@ -120,10 +120,6 @@ export default async function BlogPost({
             </div>
           </div>
           <BlogShare title={post.title} url={postUrl} />
-        </div>
-
-        <div className="blog-hero" aria-hidden="true">
-          <span className="blog-hero-mark">D</span>
         </div>
 
         <div className="blog-article-grid">
