@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "../header";
 import { SiteFooter } from "../footer";
+import { getAllPosts } from "../../lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Data Machi Blog，即將推出。",
+  description: "Data Machi 的產業觀察、實作筆記與案例拆解。",
 };
 
 export default function Blog() {
+  const posts = getAllPosts();
+
   return (
     <main id="top">
       <SiteHeader />
@@ -15,22 +18,22 @@ export default function Blog() {
       <section className="policy-section section-shell">
         <div className="policy-header">
           <span className="section-kicker">BLOG</span>
-          <h1>Blog 即將推出。</h1>
-          <p className="policy-updated">在那之前，歡迎先閱讀 30 天系列的完整內容。</p>
+          <h1>Blog</h1>
+          <p className="policy-updated">產業觀察、實作筆記，跟 30 天系列放不下的細節。</p>
         </div>
 
-        <div className="policy-body">
-          <p>
-            我們正在規劃 Blog 內容，會放一些沒辦法完整放進 30 天系列裡的實作筆記、案例拆解與產業觀察。上線之前，你可以先前往
-            {" "}
-            <a href="/#learning">30 天系列</a>
-            {" "}
-            或
-            {" "}
-            <a href="https://www.data-machi.com/docs" target="_blank" rel="noreferrer">文件</a>
-            {" "}
-            閱讀完整內容。
-          </p>
+        <div className="blog-list">
+          {posts.map((post) => (
+            <a className="blog-list-item" href={`/blog/${post.slug}`} key={post.slug}>
+              <div className="blog-list-meta">
+                <span className="learning-tag">{post.tag}</span>
+                <time dateTime={post.date}>{post.date}</time>
+              </div>
+              <h2>{post.title}</h2>
+              <p>{post.summary}</p>
+              <span className="blog-list-read">閱讀這一篇 →</span>
+            </a>
+          ))}
         </div>
       </section>
 

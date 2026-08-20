@@ -352,6 +352,16 @@ button, input { font: inherit; }
 .policy-body li { margin-bottom: 8px; }
 .policy-body a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .policy-body strong { color: #22332a; }
+.blog-body hr { margin: 36px 0; border: 0; border-top: 1px solid var(--line); }
+.blog-back-link { display: inline-flex; margin-top: 20px; }
+
+.blog-list { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+.blog-list-item { display: block; padding: 26px; border: 1px solid var(--line); border-radius: 16px; background: #fff; transition: .2s ease; }
+.blog-list-item:hover { border-color: #bcd5c6; box-shadow: 0 16px 36px rgba(20, 62, 41, .08); transform: translateY(-2px); }
+.blog-list-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; color: #8b978f; font-size: 12px; }
+.blog-list-item h2 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.02em; }
+.blog-list-item p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.blog-list-read { display: inline-flex; margin-top: 16px; color: #507060; font-size: 13px; font-weight: 700; }
 
 /* Cookie consent banner */
 .cookie-banner { position: fixed; z-index: 1200; right: 20px; bottom: 20px; left: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; max-width: 900px; margin-inline: auto; padding: 20px 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 24px 60px rgba(11, 31, 23, .18); }

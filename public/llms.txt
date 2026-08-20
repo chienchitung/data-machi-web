@@ -1,0 +1,16 @@
+# Data Machi
+
+> Data Machi 是一個免費、公開的企業 AI 知識工作流學習系列，用 30 天的篇幅，帶讀者從 RAG、Tool Use、Agent 走到 Agentic Workflow，理解企業 AI 系統如何從「回答問題」進化到「可靠完成工作」。Data Machi 目前不是一個 SaaS 產品或 Agent 開發平台，而是一套系統性的學習資源與文件。
+
+## 核心頁面
+
+- [首頁](https://www.data-machi.com/): 產品理念、能力模型（成熟度模型）、真實工作場景、30 天系列總覽
+- [文件 / Documentation](https://www.data-machi.com/docs): 30 天系列的完整內容，逐日拆解 RAG、Tool Use、Agent、Agentic Workflow 的實作細節
+- [Blog](https://www.data-machi.com/blog): 產業觀察、實作筆記
+- [關於我們](https://www.data-machi.com/about): Data Machi 的定位與方法論
+- [定價](https://www.data-machi.com/pricing): 目前完全免費，沒有付費方案
+- [隱私政策](https://www.data-machi.com/privacy): 資料蒐集與 Cookie 使用說明
+
+## 聯絡方式
+
+- Email: support@data-machi.com
