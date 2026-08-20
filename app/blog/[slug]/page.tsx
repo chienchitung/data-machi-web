@@ -4,13 +4,35 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { SiteHeader } from "../../header";
 import { SiteFooter } from "../../footer";
-import { getAllPosts, getPostBySlug } from "../../../lib/blog";
+import { getAllPosts, getPostBySlug, extractHeadings, slugify } from "../../../lib/blog";
+import { BlogToc } from "./toc";
+
+function getNodeText(node: React.ReactNode): string {
+  if (node === null || node === undefined || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getNodeText).join("");
+  if (typeof node === "object" && "props" in node) {
+    const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+    return getNodeText(element.props.children);
+  }
+  return "";
+}
 
 const mdxComponents = {
   table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
     <div className="table-scroll">
       <table {...props} />
     </div>
+  ),
+  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 id={slugify(getNodeText(children))} {...props}>
+      {children}
+    </h2>
+  ),
+  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 id={slugify(getNodeText(children))} {...props}>
+      {children}
+    </h3>
   ),
 };
 
@@ -49,6 +71,8 @@ export default async function BlogPost({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const headings = extractHeadings(post.content);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -76,15 +100,18 @@ export default async function BlogPost({
           <p className="policy-updated">{post.date}</p>
         </div>
 
-        <div className="policy-body blog-body">
-          <MDXRemote
-            source={post.content}
-            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-            components={mdxComponents}
-          />
-        </div>
+        <div className="blog-article-grid">
+          <div className="policy-body blog-body">
+            <MDXRemote
+              source={post.content}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              components={mdxComponents}
+            />
+            <a className="text-link blog-back-link" href="/blog">← 回到 Blog</a>
+          </div>
 
-        <a className="text-link blog-back-link" href="/blog">← 回到 Blog</a>
+          <BlogToc headings={headings} />
+        </div>
       </article>
 
       <SiteFooter />
