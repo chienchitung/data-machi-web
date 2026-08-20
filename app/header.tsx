@@ -9,6 +9,7 @@ export const solutionLink = { href: "/#solution", label: "解決方案" };
 
 export const resourceLinks = [
   { href: "/#learning", label: "30 天系列" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export const pricingLink = { href: "/pricing", label: "定價" };
@@ -16,7 +17,7 @@ export const pricingLink = { href: "/pricing", label: "定價" };
 export const navSections = [
   { label: "產品", href: productLinks[0].href, items: productLinks },
   { label: "解決方案", href: solutionLink.href },
-  { label: "資源", href: resourceLinks[0].href },
+  { label: "資源", href: resourceLinks[0].href, items: resourceLinks },
   { label: "定價", href: pricingLink.href },
 ];
 
