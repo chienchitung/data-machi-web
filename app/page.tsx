@@ -212,7 +212,7 @@ export default function Home() {
         </div>
 
         <div className="value-grid">
-          <article className="value-card value-card-highlight">
+          <article className="value-card">
             <div className="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <ellipse cx="12" cy="6" rx="7" ry="3" />
