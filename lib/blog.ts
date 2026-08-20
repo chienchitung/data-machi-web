@@ -46,6 +46,20 @@ export function extractHeadings(content: string): BlogHeading[] {
   return headings;
 }
 
+const CHARS_PER_MINUTE = 400;
+
+export function estimateReadingMinutes(content: string): number {
+  const plain = content
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[#>*_`~|]/g, "")
+    .replace(/^-{3,}$/gm, "")
+    .replace(/\s+/g, "");
+
+  return Math.max(1, Math.round(plain.length / CHARS_PER_MINUTE));
+}
+
 export function getAllPosts(): BlogPost[] {
   const files = fs.readdirSync(BLOG_DIR).filter((file) => file.endsWith(".mdx"));
 

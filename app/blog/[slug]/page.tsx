@@ -4,8 +4,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { SiteHeader } from "../../header";
 import { SiteFooter } from "../../footer";
-import { getAllPosts, getPostBySlug, extractHeadings, slugify } from "../../../lib/blog";
+import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, slugify } from "../../../lib/blog";
 import { BlogToc } from "./toc";
+import { BlogShare } from "./share";
 
 function getNodeText(node: React.ReactNode): string {
   if (node === null || node === undefined || typeof node === "boolean") return "";
@@ -72,6 +73,8 @@ export default async function BlogPost({
   if (!post) notFound();
 
   const headings = extractHeadings(post.content);
+  const readingMinutes = estimateReadingMinutes(post.content);
+  const postUrl = `https://www.data-machi.com/blog/${post.slug}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -82,7 +85,7 @@ export default async function BlogPost({
     dateModified: post.date,
     author: { "@type": "Organization", name: "Data Machi" },
     publisher: { "@type": "Organization", name: "Data Machi" },
-    mainEntityOfPage: `https://www.data-machi.com/blog/${post.slug}`,
+    mainEntityOfPage: postUrl,
   };
 
   return (
@@ -94,10 +97,33 @@ export default async function BlogPost({
       <SiteHeader />
 
       <article className="policy-section section-shell">
+        <div className="blog-topbar">
+          <a className="blog-back-top" href="/blog">← 回到 Blog</a>
+        </div>
+
         <div className="policy-header">
-          <span className="section-kicker">{post.tag}</span>
+          <div className="blog-post-meta">
+            <span className="section-kicker">{post.tag}</span>
+            <span className="meta-dot">/</span>
+            <time dateTime={post.date}>{post.date}</time>
+          </div>
           <h1>{post.title}</h1>
-          <p className="policy-updated">{post.date}</p>
+          <p className="blog-read-time">{readingMinutes} 分鐘閱讀</p>
+        </div>
+
+        <div className="blog-byline-row">
+          <div className="blog-author">
+            <span className="blog-author-avatar" aria-hidden="true">D</span>
+            <div className="blog-author-copy">
+              <strong>Data Machi 團隊</strong>
+              <span>內容製作</span>
+            </div>
+          </div>
+          <BlogShare title={post.title} url={postUrl} />
+        </div>
+
+        <div className="blog-hero" aria-hidden="true">
+          <span className="blog-hero-mark">D</span>
         </div>
 
         <div className="blog-article-grid">
@@ -107,7 +133,6 @@ export default async function BlogPost({
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
               components={mdxComponents}
             />
-            <a className="text-link blog-back-link" href="/blog">← 回到 Blog</a>
           </div>
 
           <BlogToc headings={headings} />
