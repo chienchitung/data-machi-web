@@ -8,7 +8,6 @@ export const productLinks = [
 export const solutionLink = { href: "/#solution", label: "解決方案" };
 
 export const resourceLinks = [
-  { href: "https://www.data-machi.com/docs", label: "文件", external: true },
   { href: "/#learning", label: "30 天系列" },
 ];
 
@@ -17,7 +16,7 @@ export const pricingLink = { href: "/pricing", label: "定價" };
 export const navSections = [
   { label: "產品", href: productLinks[0].href, items: productLinks },
   { label: "解決方案", href: solutionLink.href },
-  { label: "資源", href: resourceLinks[0].href, items: resourceLinks },
+  { label: "資源", href: resourceLinks[0].href },
   { label: "定價", href: pricingLink.href },
 ];
 

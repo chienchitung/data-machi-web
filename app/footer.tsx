@@ -3,6 +3,7 @@ import { productLinks, solutionLink, resourceLinks, pricingLink } from "./header
 const footerProductLinks = [...productLinks, solutionLink, pricingLink];
 
 const footerCompanyLinks = [
+  { href: "/about", label: "關於我們" },
   { href: "/privacy", label: "隱私政策" },
   { href: "mailto:support@data-machi.com", label: "聯絡我們" },
 ];
@@ -30,13 +31,7 @@ export function SiteFooter() {
             <div className="footer-nav-group">
               <span>Resources</span>
               {resourceLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                >
-                  {link.label}
-                </a>
+                <a key={link.href} href={link.href}>{link.label}</a>
               ))}
             </div>
             <div className="footer-nav-group">
