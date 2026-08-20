@@ -8,7 +8,7 @@ export const productLinks = [
 export const solutionLink = { href: "/#solution", label: "解決方案" };
 
 export const resourceLinks = [
-  { href: "/#learning", label: "30 天系列" },
+  { href: "https://www.data-machi.com/docs", label: "30 天系列" },
   { href: "/blog", label: "Blog" },
 ];
 

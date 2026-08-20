@@ -354,6 +354,13 @@ button, input { font: inherit; }
 .policy-body strong { color: #22332a; }
 .blog-body hr { margin: 36px 0; border: 0; border-top: 1px solid var(--line); }
 .blog-back-link { display: inline-flex; margin-top: 20px; }
+.blog-body .table-scroll { overflow-x: auto; margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; -webkit-overflow-scrolling: touch; }
+.blog-body table { min-width: 640px; border-collapse: collapse; font-size: 13px; }
+.blog-body th, .blog-body td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; white-space: normal; }
+.blog-body th:first-child, .blog-body td:first-child { min-width: 110px; }
+.blog-body th { color: #22332a; font-weight: 700; background: #f4f8f5; white-space: nowrap; }
+.blog-body td { color: var(--muted); }
+.blog-body tr:last-child td { border-bottom: 0; }
 
 .blog-list { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
 .blog-list-item { display: block; padding: 26px; border: 1px solid var(--line); border-radius: 16px; background: #fff; transition: .2s ease; }

@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { SiteHeader } from "../../header";
 import { SiteFooter } from "../../footer";
 import { getAllPosts, getPostBySlug } from "../../../lib/blog";
+
+const mdxComponents = {
+  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+    <div className="table-scroll">
+      <table {...props} />
+    </div>
+  ),
+};
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -68,7 +77,11 @@ export default async function BlogPost({
         </div>
 
         <div className="policy-body blog-body">
-          <MDXRemote source={post.content} />
+          <MDXRemote
+            source={post.content}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            components={mdxComponents}
+          />
         </div>
 
         <a className="text-link blog-back-link" href="/blog">← 回到 Blog</a>
