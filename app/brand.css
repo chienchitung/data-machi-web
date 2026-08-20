@@ -1,6 +1,6 @@
 /* Brand mark rendered as live text/icon (not an image) so it always uses
-   the site's own Inter font instead of silently falling back when
-   loaded as a CSS background-image, which can't fetch external fonts. */
+   a real loaded web font instead of silently falling back when loaded
+   as a CSS background-image, which can't fetch external fonts. */
 .brand-mark,
 .mini-logo {
   color: transparent;
@@ -11,7 +11,8 @@
 }
 
 .brand-copy strong {
-  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', 'Noto Sans TC', sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .brand-copy small {
