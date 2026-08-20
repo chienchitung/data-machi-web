@@ -354,6 +354,7 @@ button, input { font: inherit; }
 .policy-body li { margin-bottom: 8px; }
 .policy-body a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .policy-body strong { color: #22332a; }
+.blog-body { font-size: 16px; }
 .blog-body hr { margin: 36px 0; border: 0; border-top: 1px solid var(--line); }
 
 /* Blog article: top bar, meta, byline + share */
