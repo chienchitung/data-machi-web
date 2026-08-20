@@ -10,6 +10,7 @@
 - [關於我們](https://www.data-machi.com/about): Data Machi 的定位與方法論
 - [定價](https://www.data-machi.com/pricing): 目前完全免費，沒有付費方案
 - [隱私政策](https://www.data-machi.com/privacy): 資料蒐集與 Cookie 使用說明
+- [服務條款](https://www.data-machi.com/terms): 使用本網站與內容的條款
 
 ## 聯絡方式
 

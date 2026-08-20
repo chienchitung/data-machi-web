@@ -27,9 +27,13 @@ export function CookieConsent({ measurementId }: { measurementId?: string }) {
       {ready && consent === null && (
         <div className="cookie-banner" role="dialog" aria-label="Cookie 使用同意">
           <p>
-            我們使用 Cookie 蒐集匿名的網站使用數據（透過 Google Analytics），協助我們了解訪客如何使用 Data Machi、持續改善內容。點擊「接受」即表示您同意，詳情請見
+            我們使用 cookies 來確保您在網站上能獲得良好的體驗。如果您繼續使用本網站，我們將認定您接受並理解我們的
             {" "}
-            <a href="/privacy">隱私政策</a>。
+            <a href="/privacy">隱私權政策</a>
+            {" "}
+            和
+            {" "}
+            <a href="/terms">服務條款</a>。
           </p>
           <div className="cookie-banner-actions">
             <button type="button" className="cookie-decline" onClick={() => respond("denied")}>

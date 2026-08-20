@@ -5,6 +5,7 @@ const footerProductLinks = [...productLinks, solutionLink, pricingLink];
 const footerCompanyLinks = [
   { href: "/about", label: "關於我們" },
   { href: "/privacy", label: "隱私政策" },
+  { href: "/terms", label: "服務條款" },
   { href: "mailto:support@data-machi.com", label: "聯絡我們" },
 ];
 

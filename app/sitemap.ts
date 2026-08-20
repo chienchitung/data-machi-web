@@ -4,7 +4,7 @@ import { getAllPosts } from "../lib/blog";
 const BASE_URL = "https://www.data-machi.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/blog", "/pricing", "/privacy"].map((route) => ({
+  const staticRoutes = ["", "/about", "/blog", "/pricing", "/privacy", "/terms"].map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
   }));
