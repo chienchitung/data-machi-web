@@ -1,4 +1,5 @@
-import { MobileNav } from "./mobile-nav";
+import { SiteHeader } from "./header";
+import { SiteFooter } from "./footer";
 
 const learningPaths = [
   {
@@ -60,12 +61,6 @@ const capabilities = [
   { name: "Product", description: "可靠交付" },
 ];
 
-const navLinks = [
-  { href: "#product", label: "產品理念" },
-  { href: "#framework", label: "能力模型" },
-  { href: "#learning", label: "30 天系列" },
-];
-
 const useCases = [
   {
     label: "CROSS-SOURCE QUERY",
@@ -90,29 +85,7 @@ const useCases = [
 export default function Home() {
   return (
     <main id="top">
-      <header className="site-header">
-        <div className="header-inner">
-          <a className="brand" href="#top" aria-label="Data Machi 首頁">
-            <span className="brand-mark">D</span>
-            <span className="brand-copy">
-              <strong>Data Machi</strong>
-              <small>Enterprise AI Workflow</small>
-            </span>
-          </a>
-
-          <nav className="nav-links" aria-label="主要導覽">
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>{link.label}</a>
-            ))}
-          </nav>
-
-          <MobileNav links={navLinks} />
-
-          <a className="nav-cta" href="https://www.data-machi.com/docs">
-            開始閱讀 <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
@@ -371,26 +344,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <div className="footer-shell section-shell">
-          <div className="footer-top">
-            <div className="footer-brand">
-              <a className="brand" href="#top" aria-label="Data Machi 首頁">
-                <span className="brand-mark">D</span>
-                <span className="brand-copy"><strong>Data Machi</strong><small>Enterprise AI Workflow</small></span>
-              </a>
-              <p>從 RAG 到 Agentic Workflow，30 天建立真正能完成工作的企業 AI 知識工作流。</p>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <small>© {new Date().getFullYear()} Data Machi. All rights reserved.</small>
-            <a className="back-to-top" href="#top">
-              回到頂端 <span aria-hidden="true">↑</span>
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
