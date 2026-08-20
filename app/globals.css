@@ -71,10 +71,35 @@ button, input { font: inherit; }
 .brand-copy strong { font-size: 16px; letter-spacing: -0.02em; }
 .brand-copy small { margin-top: 4px; color: #7a8881; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .nav-links { justify-self: center; display: flex; align-items: center; gap: 30px; color: #53635b; font-size: 13px; font-weight: 600; }
-.nav-links a { position: relative; padding: 29px 0; }
-.nav-links a::after { content: ''; position: absolute; right: 0; bottom: 20px; left: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform .2s ease; }
-.nav-links a:hover { color: var(--ink); }
-.nav-links a:hover::after { transform: scaleX(1); }
+.nav-item { position: relative; }
+.nav-item-trigger { position: relative; display: inline-flex; align-items: center; gap: 5px; padding: 29px 0; }
+.nav-item-trigger::after { content: ''; position: absolute; right: 0; bottom: 20px; left: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform .2s ease; }
+.nav-item-trigger:hover, .nav-item:focus-within .nav-item-trigger { color: var(--ink); }
+.nav-item-trigger:hover::after, .nav-item:focus-within .nav-item-trigger::after { transform: scaleX(1); }
+.nav-item-trigger.has-dropdown::before { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
+.nav-item:hover .nav-item-trigger.has-dropdown::before, .nav-item:focus-within .nav-item-trigger.has-dropdown::before { transform: translateY(1px) rotate(225deg); }
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 176px;
+  margin-top: -6px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 44px rgba(11, 31, 23, .14);
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.nav-dropdown a { padding: 10px 12px; border-radius: 8px; color: #3d4d45; font-weight: 600; white-space: nowrap; transition: .15s ease; }
+.nav-dropdown a:hover { color: var(--green-dark); background: #f2f8f4; }
 .nav-cta {
   display: inline-flex;
   align-items: center;

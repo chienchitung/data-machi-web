@@ -118,8 +118,8 @@ export default function Home() {
               <a className="button button-primary" href="https://www.data-machi.com/docs">
                 開始閱讀 30 天系列 <span aria-hidden="true">↗</span>
               </a>
-              <a className="button button-secondary" href="#product">
-                探索 Data Machi
+              <a className="button button-secondary" href="/#product">
+                探索產品
               </a>
             </div>
 
@@ -280,7 +280,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="use-case-section section-shell">
+      <section className="use-case-section section-shell" id="solution">
         <div className="section-intro compact-intro">
           <div><span className="section-kicker">REAL WORKFLOWS</span><h2>從真實工作問題開始設計。</h2></div>
           <p>不先問「要用哪個模型」，而是先拆解工作、資料來源、決策步驟與可接受的風險。</p>

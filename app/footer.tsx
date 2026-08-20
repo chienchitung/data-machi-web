@@ -1,8 +1,10 @@
-import { navLinks } from "./header";
+import { productLinks, solutionLink, resourceLinks, pricingLink } from "./header";
 
-const resourceLinks = [
-  { href: "https://www.data-machi.com/docs", label: "文件", external: true },
+const footerProductLinks = [...productLinks, solutionLink, pricingLink];
+
+const footerCompanyLinks = [
   { href: "/privacy", label: "隱私政策" },
+  { href: "mailto:support@data-machi.com", label: "聯絡我們" },
 ];
 
 export function SiteFooter() {
@@ -20,13 +22,13 @@ export function SiteFooter() {
 
           <nav className="footer-nav" aria-label="footer">
             <div className="footer-nav-group">
-              <span>產品</span>
-              {navLinks.map((link) => (
+              <span>Product</span>
+              {footerProductLinks.map((link) => (
                 <a key={link.href} href={link.href}>{link.label}</a>
               ))}
             </div>
             <div className="footer-nav-group">
-              <span>資源</span>
+              <span>Resources</span>
               {resourceLinks.map((link) => (
                 <a
                   key={link.href}
@@ -35,6 +37,12 @@ export function SiteFooter() {
                 >
                   {link.label}
                 </a>
+              ))}
+            </div>
+            <div className="footer-nav-group">
+              <span>Company</span>
+              {footerCompanyLinks.map((link) => (
+                <a key={link.href} href={link.href}>{link.label}</a>
               ))}
             </div>
           </nav>
