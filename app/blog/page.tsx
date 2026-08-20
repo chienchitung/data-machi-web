@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
-  const posts = getAllPosts();
+  const [featured, ...rest] = getAllPosts();
 
   return (
     <main id="top">
@@ -21,19 +21,38 @@ export default function Blog() {
           <h1>部落格</h1>
         </div>
 
-        <div className="blog-list">
-          {posts.map((post) => (
-            <a className="blog-list-item" href={`/blog/${post.slug}`} key={post.slug}>
+        {featured && (
+          <a className="blog-featured" href={`/blog/${featured.slug}`}>
+            <div className="blog-featured-visual" aria-hidden="true">
+              <span className="blog-featured-mark">D</span>
+            </div>
+            <div className="blog-featured-content">
               <div className="blog-list-meta">
-                <span className="learning-tag">{post.tag}</span>
-                <time dateTime={post.date}>{post.date}</time>
+                <span className="learning-tag">{featured.tag}</span>
+                <time dateTime={featured.date}>{featured.date}</time>
               </div>
-              <h2>{post.title}</h2>
-              <p>{post.summary}</p>
+              <h2>{featured.title}</h2>
+              <p>{featured.summary}</p>
               <span className="blog-list-read">閱讀這一篇 →</span>
-            </a>
-          ))}
-        </div>
+            </div>
+          </a>
+        )}
+
+        {rest.length > 0 && (
+          <div className="blog-grid">
+            {rest.map((post) => (
+              <a className="blog-list-item" href={`/blog/${post.slug}`} key={post.slug}>
+                <div className="blog-list-meta">
+                  <span className="learning-tag">{post.tag}</span>
+                  <time dateTime={post.date}>{post.date}</time>
+                </div>
+                <h2>{post.title}</h2>
+                <p>{post.summary}</p>
+                <span className="blog-list-read">閱讀這一篇 →</span>
+              </a>
+            ))}
+          </div>
+        )}
       </section>
 
       <SiteFooter />
