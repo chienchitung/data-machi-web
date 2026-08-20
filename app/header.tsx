@@ -14,14 +14,14 @@ export const resourceLinks = [
 
 export const pricingLink = { href: "/pricing", label: "定價" };
 
-const navSections = [
+export const navSections = [
   { label: "產品", href: productLinks[0].href, items: productLinks },
   { label: "解決方案", href: solutionLink.href },
   { label: "資源", href: resourceLinks[0].href, items: resourceLinks },
   { label: "定價", href: pricingLink.href },
 ];
 
-const mobileLinks = [...productLinks, solutionLink, ...resourceLinks, pricingLink];
+export const docsCta = { href: "https://www.data-machi.com/docs", label: "開始閱讀" };
 
 export function SiteHeader() {
   return (
@@ -58,10 +58,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <MobileNav links={mobileLinks} />
+        <MobileNav sections={navSections} cta={docsCta} />
 
-        <a className="nav-cta" href="https://www.data-machi.com/docs">
-          開始閱讀 <span aria-hidden="true">↗</span>
+        <a className="nav-cta" href={docsCta.href}>
+          {docsCta.label} <span aria-hidden="true">↗</span>
         </a>
       </div>
     </header>
