@@ -76,7 +76,7 @@ button, input { font: inherit; }
 .nav-item-trigger::after { content: ''; position: absolute; right: 0; bottom: 20px; left: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform .2s ease; }
 .nav-item-trigger:hover, .nav-item:focus-within .nav-item-trigger { color: var(--ink); }
 .nav-item-trigger:hover::after, .nav-item:focus-within .nav-item-trigger::after { transform: scaleX(1); }
-.nav-item-trigger.has-dropdown::before { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
+.nav-item-trigger.has-dropdown::before { content: ''; order: 2; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
 .nav-item:hover .nav-item-trigger.has-dropdown::before, .nav-item:focus-within .nav-item-trigger.has-dropdown::before { transform: translateY(1px) rotate(225deg); }
 .nav-dropdown {
   position: absolute;

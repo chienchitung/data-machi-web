@@ -18,7 +18,7 @@ export default function Blog() {
       <section className="policy-section section-shell">
         <div className="policy-header">
           <span className="section-kicker">BLOG</span>
-          <h1>Blog</h1>
+          <h1>部落格</h1>
           <p className="policy-updated">產業觀察、實作筆記，跟 30 天系列放不下的細節。</p>
         </div>
 
