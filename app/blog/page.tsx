@@ -19,7 +19,6 @@ export default function Blog() {
         <div className="policy-header">
           <span className="section-kicker">BLOG</span>
           <h1>部落格</h1>
-          <p className="policy-updated">產業觀察、實作筆記，跟 30 天系列放不下的細節。</p>
         </div>
 
         <div className="blog-list">
