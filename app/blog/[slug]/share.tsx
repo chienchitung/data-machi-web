@@ -4,12 +4,13 @@ import { useState } from "react";
 
 export function BlogShare({ title, url }: { title: string; url: string }) {
   const [copied, setCopied] = useState(false);
+  const [igCopied, setIgCopied] = useState(false);
 
-  const handleCopy = async () => {
+  const copyToClipboard = async (onDone: (copied: boolean) => void) => {
     try {
       await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
+      onDone(true);
+      setTimeout(() => onDone(false), 1800);
     } catch {
       // Clipboard API unavailable (e.g. insecure context) — nothing to fall back to.
     }
@@ -17,6 +18,7 @@ export function BlogShare({ title, url }: { title: string; url: string }) {
 
   const linkedInHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
   const xHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+  const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
 
   return (
     <div className="blog-share">
@@ -44,7 +46,41 @@ export function BlogShare({ title, url }: { title: string; url: string }) {
             <path d="M18.9 2H22l-7.6 8.7L23.3 22h-6.9l-5.4-6.6L4.8 22H1.7l8.1-9.3L1 2h7l4.9 6L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z" />
           </svg>
         </a>
-        <button type="button" onClick={handleCopy} aria-label="複製連結" title={copied ? "已複製連結" : "複製連結"}>
+        <a
+          href={facebookHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="分享到 Facebook"
+          title="分享到 Facebook"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0 0 22 12z" />
+          </svg>
+        </a>
+        <button
+          type="button"
+          onClick={() => copyToClipboard(setIgCopied)}
+          aria-label="分享到 Instagram"
+          title={igCopied ? "已複製連結，可貼到 Instagram 限動或訊息" : "分享到 Instagram（複製連結）"}
+        >
+          {igCopied ? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={() => copyToClipboard(setCopied)}
+          aria-label="複製連結"
+          title={copied ? "已複製連結" : "複製連結"}
+        >
           {copied ? (
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M20 6 9 17l-5-5" />
