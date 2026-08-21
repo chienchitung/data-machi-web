@@ -90,7 +90,6 @@ export default function Home() {
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow hero-glow-one" aria-hidden="true" />
-        <div className="hero-glow hero-glow-two" aria-hidden="true" />
 
         <div className="hero-inner section-shell">
           <div className="hero-copy">
@@ -328,7 +327,6 @@ export default function Home() {
 
       <section className="final-section section-shell">
         <div className="final-card">
-          <div className="final-orb" aria-hidden="true" />
           <div>
             <span className="section-kicker section-kicker-light">START BUILDING</span>
             <h2>
