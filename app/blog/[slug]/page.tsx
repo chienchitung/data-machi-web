@@ -8,6 +8,7 @@ import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, sl
 import { BlogToc } from "./toc";
 import { BlogShare } from "./share";
 import { TrendChart } from "../chart";
+import { SubscribeForm } from "../../subscribe-form";
 
 function getNodeText(node: React.ReactNode): string {
   if (node === null || node === undefined || typeof node === "boolean") return "";
@@ -131,6 +132,7 @@ export default async function BlogPost({
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
               components={mdxComponents}
             />
+            <SubscribeForm />
           </div>
 
           <BlogToc headings={headings} />

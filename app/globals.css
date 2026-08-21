@@ -462,6 +462,17 @@ button, input { font: inherit; }
 .blog-list-item p { display: -webkit-box; margin: 0; overflow: hidden; color: var(--muted); font-size: 14px; line-height: 1.75; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
 .blog-list-item .blog-list-read { margin-top: auto; padding-top: 16px; }
 
+/* Subscribe form */
+.subscribe-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 48px; padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface-soft); }
+.subscribe-copy { display: flex; flex-direction: column; gap: 6px; max-width: 420px; }
+.subscribe-copy strong { color: #22332a; font-size: 16px; }
+.subscribe-copy span { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.subscribe-form { display: flex; flex: 0 0 auto; gap: 10px; }
+.subscribe-form input { width: 240px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 13px; }
+.subscribe-form input:focus { border-color: var(--green); outline: none; }
+.subscribe-form button { padding: 12px 22px; border: 1px solid transparent; border-radius: 999px; color: #fff; background: var(--ink); font-size: 13px; font-weight: 700; cursor: pointer; transition: .2s ease; }
+.subscribe-form button:hover { background: var(--green-dark); }
+
 /* Cookie consent banner */
 .cookie-banner { position: fixed; z-index: 1200; right: 20px; bottom: 20px; left: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; max-width: 900px; margin-inline: auto; padding: 20px 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 24px 60px rgba(11, 31, 23, .18); }
 .cookie-banner p { flex: 1 1 380px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
@@ -554,4 +565,7 @@ button, input { font: inherit; }
   .blog-featured-visual { min-height: 140px; }
   .blog-featured-visual svg { width: 100px; height: 100px; }
   .blog-featured-content { padding: 28px 24px; }
+  .subscribe-box { flex-direction: column; align-items: flex-start; padding: 26px; }
+  .subscribe-form { width: 100%; }
+  .subscribe-form input { flex: 1; width: auto; }
 }

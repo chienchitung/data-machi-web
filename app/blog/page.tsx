@@ -3,6 +3,7 @@ import { SiteHeader } from "../header";
 import { SiteFooter } from "../footer";
 import { getAllPosts } from "../../lib/blog";
 import { BlogCoverArt } from "./cover-art";
+import { SubscribeForm } from "../subscribe-form";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -54,6 +55,8 @@ export default function Blog() {
             ))}
           </div>
         )}
+
+        <SubscribeForm />
       </section>
 
       <SiteFooter />

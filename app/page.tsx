@@ -3,6 +3,7 @@ import { SiteFooter } from "./footer";
 import { FAQSection } from "./faq";
 import { getAllPosts } from "../lib/blog";
 import { BlogCoverArt } from "./blog/cover-art";
+import { SubscribeForm } from "./subscribe-form";
 
 const learningPaths = [
   {
@@ -359,6 +360,10 @@ export default function Home() {
       )}
 
       <FAQSection />
+
+      <div className="section-shell">
+        <SubscribeForm />
+      </div>
 
       <section className="final-section section-shell">
         <div className="final-card">
