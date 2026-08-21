@@ -7,6 +7,7 @@ import { SiteFooter } from "../../footer";
 import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, slugify } from "../../../lib/blog";
 import { BlogToc } from "./toc";
 import { BlogShare } from "./share";
+import { TrendChart } from "../chart";
 
 function getNodeText(node: React.ReactNode): string {
   if (node === null || node === undefined || typeof node === "boolean") return "";
@@ -35,6 +36,7 @@ const mdxComponents = {
       {children}
     </h3>
   ),
+  TrendChart,
 };
 
 export function generateStaticParams() {
