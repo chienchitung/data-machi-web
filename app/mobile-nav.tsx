@@ -73,7 +73,7 @@ export function MobileNav({
           </div>
 
           <a className="mobile-nav-cta" href={cta.href} onClick={close}>
-            {cta.label} <span aria-hidden="true">↗</span>
+            {cta.label}
           </a>
         </nav>
       )}

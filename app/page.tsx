@@ -115,7 +115,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <a className="button button-primary" href="https://www.data-machi.com/docs">
-                開始閱讀 30 天系列 <span aria-hidden="true">↗</span>
+                開始閱讀 30 天系列
               </a>
               <a className="button button-secondary" href="/#product">
                 探索產品
@@ -341,7 +341,7 @@ export default function Home() {
             </h2>
             <p>30 天，從 RAG 一路走到 Agentic Workflow 與產品化。</p>
           </div>
-          <a className="button button-light" href="https://www.data-machi.com/docs">開始閱讀 <span>↗</span></a>
+          <a className="button button-light" href="https://www.data-machi.com/docs">開始閱讀</a>
         </div>
       </section>
 

@@ -61,7 +61,7 @@ export function SiteHeader() {
         <MobileNav sections={navSections} cta={docsCta} />
 
         <a className="nav-cta" href={docsCta.href}>
-          {docsCta.label} <span aria-hidden="true">↗</span>
+          {docsCta.label}
         </a>
       </div>
     </header>
