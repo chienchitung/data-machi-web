@@ -4,7 +4,10 @@ import path from "path";
 import { getAllPosts, getPostBySlug } from "../../../lib/blog";
 import { BLOG_COVER_ART_SVG } from "../cover-art";
 
-export const size = { width: 1200, height: 630 };
+// Rendered at 2x (2400x1260) and downscaled by the platform on display —
+// keeps text and thin lines crisp after LinkedIn/Facebook's own image
+// compression, which otherwise visibly blurs a 1x source.
+export const size = { width: 2400, height: 1260 };
 export const contentType = "image/png";
 export const alt = "Data Machi";
 
@@ -27,11 +30,14 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
   return new ImageResponse(
     (
+      <div style={{ display: "flex", width: "100%", height: "100%" }}>
       <div
         style={{
           display: "flex",
-          width: "100%",
-          height: "100%",
+          width: "1200px",
+          height: "630px",
+          transform: "scale(2)",
+          transformOrigin: "top left",
           padding: "64px",
           background: "linear-gradient(135deg, #f7fbf8 0%, #eafbf0 100%)",
           fontFamily: "Noto Sans TC",
@@ -138,6 +144,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={coverArtDataUri} width={340} height={340} alt="" />
         </div>
+      </div>
       </div>
     ),
     {
