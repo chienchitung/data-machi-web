@@ -33,7 +33,7 @@ export function FAQSection() {
       <div className="section-intro">
         <div>
           <span className="section-kicker">FAQ</span>
-          <h2>常見問題。</h2>
+          <h2>常見問題</h2>
         </div>
         <p>如果這裡沒有回答到你的疑問，歡迎直接寫信給我們。</p>
       </div>

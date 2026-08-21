@@ -109,7 +109,7 @@ export default function Home() {
               <span>
                 串成真正能工作的
                 <br />
-                AI。
+                AI
               </span>
             </h1>
 
@@ -208,7 +208,7 @@ export default function Home() {
             <h2>
               企業 AI 的價值，
               <br />
-              不只在模型本身。
+              不只在模型本身
             </h2>
           </div>
           <p>真正能落地的 AI 產品，需要同時處理知識、計算、工具、決策與控制。Data Machi 將這些能力放進同一張系統地圖。</p>
@@ -263,7 +263,7 @@ export default function Home() {
             <h2>
               從聊天介面，
               <br />
-              走到企業級 AI 產品。
+              走到企業級 AI 產品
             </h2>
             <p>每一次能力升級，都代表系統需要新增不同的資料架構、工具權限、決策控制與可靠性設計。</p>
             <a href="https://www.data-machi.com/docs" className="framework-link">閱讀完整架構</a>
@@ -285,7 +285,7 @@ export default function Home() {
 
       <section className="use-case-section section-shell" id="solution">
         <div className="section-intro compact-intro">
-          <div><span className="section-kicker">REAL WORKFLOWS</span><h2>從真實工作問題開始設計。</h2></div>
+          <div><span className="section-kicker">REAL WORKFLOWS</span><h2>從真實工作問題開始設計</h2></div>
           <p>不先問「要用哪個模型」，而是先拆解工作、資料來源、決策步驟與可接受的風險。</p>
         </div>
 
@@ -312,7 +312,7 @@ export default function Home() {
               <h2>
                 30 天，建立一張完整的企業
                 <br />
-                AI 知識地圖。
+                AI 知識地圖
               </h2>
             </div>
             <a className="text-link" href="https://www.data-machi.com/docs">查看所有文章</a>
@@ -337,7 +337,7 @@ export default function Home() {
           <div className="section-intro">
             <div>
               <span className="section-kicker">FROM THE BLOG</span>
-              <h2>產業觀察與實作筆記。</h2>
+              <h2>產業觀察與實作筆記</h2>
             </div>
             <p>我們怎麼看待企業 AI 市場、平台選擇與實際踩過的坑，寫在部落格裡。</p>
           </div>
@@ -372,7 +372,7 @@ export default function Home() {
               <br />
               建立真正能完成工作的
               <br />
-              企業 AI。
+              企業 AI
             </h2>
             <p>30 天，從 RAG 一路走到 Agentic Workflow 與產品化。</p>
           </div>
