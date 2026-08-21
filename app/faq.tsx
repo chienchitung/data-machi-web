@@ -52,7 +52,11 @@ export function FAQSection() {
                 <span>{item.q}</span>
                 <span className="faq-toggle" aria-hidden="true" />
               </button>
-              {isOpen && <p className="faq-answer">{item.a}</p>}
+              <div className="faq-answer-wrap">
+                <div className="faq-answer-inner">
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              </div>
             </div>
           );
         })}

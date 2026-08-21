@@ -331,6 +331,9 @@ button, input { font: inherit; }
 .faq-question { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 26px 4px; border: 0; background: none; color: var(--ink); font-size: 16px; font-weight: 700; text-align: left; letter-spacing: -.01em; cursor: pointer; }
 .faq-toggle { flex-shrink: 0; width: 9px; height: 9px; margin-left: 20px; border-right: 1.5px solid #7a8881; border-bottom: 1.5px solid #7a8881; transform: rotate(45deg); transition: transform .2s ease; }
 .faq-item.is-open .faq-toggle { transform: rotate(225deg); }
+.faq-answer-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+.faq-item.is-open .faq-answer-wrap { grid-template-rows: 1fr; }
+.faq-answer-inner { overflow: hidden; }
 .faq-answer { max-width: 640px; margin: 0; padding: 0 32px 26px 4px; color: var(--muted); font-size: 14px; line-height: 1.85; }
 
 /* Final CTA */
