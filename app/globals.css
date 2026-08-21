@@ -162,7 +162,15 @@ button, input { font: inherit; }
   font-weight: 700;
   letter-spacing: .03em;
 }
-.release-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(22, 163, 74, .12); }
+.release-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(22, 163, 74, .12); }
+.release-dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: var(--green); animation: release-pulse 1.8s cubic-bezier(0, 0, .2, 1) infinite; }
+@keyframes release-pulse {
+  0% { transform: scale(1); opacity: .6; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .release-dot::after { animation: none; display: none; }
+}
 .hero h1 { max-width: 600px; margin: 24px 0 24px; font-size: clamp(38px, 4.6vw, 58px); line-height: 1.18; letter-spacing: -.045em; word-break: keep-all; }
 .hero h1 span { display: block; color: var(--green-dark); }
 .hero-description { max-width: 590px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.9; }
