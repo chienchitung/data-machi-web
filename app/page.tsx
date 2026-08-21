@@ -310,11 +310,7 @@ export default function Home() {
           <div className="section-intro learning-intro">
             <div>
               <span className="section-kicker">30-DAY SERIES</span>
-              <h2>
-                30 天，建立一張完整的企業
-                <br />
-                AI 知識地圖
-              </h2>
+              <h2>30 天，建立一張完整的企業 AI 知識地圖</h2>
             </div>
             <a className="text-link" href="https://www.data-machi.com/docs">查看所有文章</a>
           </div>

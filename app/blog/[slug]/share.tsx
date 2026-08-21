@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export function BlogShare({ title, url }: { title: string; url: string }) {
   const [copied, setCopied] = useState(false);
-  const [igCopied, setIgCopied] = useState(false);
 
   const copyToClipboard = async (onDone: (copied: boolean) => void) => {
     try {
@@ -57,24 +56,6 @@ export function BlogShare({ title, url }: { title: string; url: string }) {
             <path d="M22 12a10 10 0 1 0-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0 0 22 12z" />
           </svg>
         </a>
-        <button
-          type="button"
-          onClick={() => copyToClipboard(setIgCopied)}
-          aria-label="分享到 Instagram"
-          title={igCopied ? "已複製連結，可貼到 Instagram 限動或訊息" : "分享到 Instagram（複製連結）"}
-        >
-          {igCopied ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-          )}
-        </button>
         <button
           type="button"
           onClick={() => copyToClipboard(setCopied)}
