@@ -238,7 +238,7 @@ button, input { font: inherit; }
 .floating-card strong { font-size: 9px; }
 .floating-card small { margin-top: 2px; color: #849189; font-size: 6px; }
 .floating-card-left { left: -38px; bottom: 78px; }
-.floating-card-right { right: -30px; top: 94px; }
+.floating-card-right { right: -30px; top: 140px; }
 .floating-icon { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; color: #15803d; background: #dcfce7; font-size: 11px; font-weight: 800; }
 .pulse-icon { width: 11px; height: 11px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 0 7px #dbeafe; }
 
@@ -293,14 +293,16 @@ button, input { font: inherit; }
 /* Use cases */
 .use-case-section { padding: 110px 0 118px; }
 .compact-intro { grid-template-columns: 1fr .58fr; }
-.use-case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
-.use-case-card { display: flex; flex-direction: column; min-height: 280px; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: .25s ease; }
-.use-case-card:hover { transform: translateY(-5px); border-color: #bcd5c6; box-shadow: 0 20px 45px rgba(20, 62, 41, .09); }
-.use-case-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; color: #799087; font-size: 8px; font-weight: 800; letter-spacing: .11em; }
-.use-case-top b { color: #b5c0ba; font-size: 10px; }
-.use-case-card h3 { margin: 0 0 12px; font-size: 22px; line-height: 1.35; letter-spacing: -.035em; }
-.use-case-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
-.source-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 20px; }
+.use-case-list { display: flex; flex-direction: column; margin-top: 46px; border-top: 1px solid var(--line); }
+.use-case-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 32px; align-items: center; padding: 34px 12px; border-bottom: 1px solid var(--line); transition: background .2s ease; }
+.use-case-row:hover { background: #f8fbf9; }
+.use-case-index { color: #b1bdb6; font-size: 13px; font-weight: 800; letter-spacing: .04em; }
+.use-case-row-body { min-width: 0; }
+.use-case-label { display: block; margin-bottom: 10px; color: #799087; font-size: 10px; font-weight: 800; letter-spacing: .11em; }
+.use-case-row h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.03em; }
+.use-case-row p { margin: 0; max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.use-case-row .source-tags { flex-shrink: 0; justify-content: flex-end; max-width: 180px; margin: 0; padding: 0; }
+.source-tags { display: flex; flex-wrap: wrap; gap: 7px; }
 .source-tags span { padding: 6px 8px; border-radius: 7px; color: #416052; background: #eef6f1; font-size: 8px; font-weight: 700; }
 
 /* Learning */
@@ -453,7 +455,7 @@ button, input { font: inherit; }
   .hero-copy { max-width: 720px; }
   .product-stage { width: min(760px, 100%); margin-inline: auto; }
   .product-window { transform: none; }
-  .value-grid, .use-case-grid, .learning-grid { grid-template-columns: repeat(2, 1fr); }
+  .value-grid, .learning-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .framework-inner { grid-template-columns: 1fr; }
   .framework-copy { max-width: 720px; }
@@ -488,8 +490,11 @@ button, input { font: inherit; }
   .framework-section, .learning-section { padding: 78px 0; }
   .section-intro h2 { font-size: 32px; }
   .framework-copy h2 { font-size: 32px; max-width: none; }
-  .value-grid, .use-case-grid, .learning-grid { grid-template-columns: 1fr; }
-  .value-card, .use-case-card, .learning-card { min-height: 0; }
+  .value-grid, .learning-grid { grid-template-columns: 1fr; }
+  .value-card, .learning-card { min-height: 0; }
+  .use-case-row { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+  .use-case-index { display: none; }
+  .use-case-row .source-tags { justify-content: flex-start; max-width: none; }
   .capability-map { padding: 12px; }
   .capability-row { grid-template-columns: 24px 22px 88px 1fr; gap: 7px; }
   .capability-level { display: none; }

@@ -285,12 +285,15 @@ export default function Home() {
           <p>不先問「要用哪個模型」，而是先拆解工作、資料來源、決策步驟與可接受的風險。</p>
         </div>
 
-        <div className="use-case-grid">
+        <div className="use-case-list">
           {useCases.map((item, index) => (
-            <article className="use-case-card" key={item.title}>
-              <div className="use-case-top"><span>{item.label}</span><b>0{index + 1}</b></div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+            <article className="use-case-row" key={item.title}>
+              <span className="use-case-index">0{index + 1}</span>
+              <div className="use-case-row-body">
+                <span className="use-case-label">{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
               <div className="source-tags">{item.sources.map((source) => <span key={source}>{source}</span>)}</div>
             </article>
           ))}
