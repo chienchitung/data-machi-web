@@ -22,17 +22,34 @@
   img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
   body { margin: 0; padding: 0; width: 100% !important; background: #f7f9f8; }
 
-  .content-body h1, .content-body h2 { color: #0b1f17; font-weight: 700; line-height: 1.35; margin: 32px 0 12px; }
-  .content-body h1 { font-size: 24px; }
-  .content-body h2 { font-size: 20px; }
-  .content-body h3 { color: #0b1f17; font-weight: 700; font-size: 17px; line-height: 1.4; margin: 24px 0 10px; }
+  /*
+    Heading levels double as Friday's separate "eyebrow" + "title" blocks, using
+    the same H1/H2/H3 choices already in Kit's own formatting dropdown:
+      H3 = small kicker/eyebrow label (e.g. "產業觀察" above the title)
+      H1 = the email's main title
+      H2 = optional secondary section heading inside a longer email
+  */
+  .content-body h3 {
+    color: #16a34a; font-weight: 800; font-size: 11px; line-height: 1.4;
+    letter-spacing: .1em; margin: 0 0 10px;
+  }
+  .content-body h1, .content-body h2 { color: #0b1f17; font-weight: 700; line-height: 1.35; margin: 0 0 16px; }
+  .content-body h1 { font-size: 26px; }
+  .content-body h2 { font-size: 19px; margin-top: 32px; }
   .content-body p { color: #33443b; font-size: 15px; line-height: 1.8; margin: 0 0 16px; }
-  .content-body a { color: #0d7134; text-decoration: underline; }
+  .content-body a { color: #0d7134; font-weight: 700; text-decoration: underline; }
   .content-body ul, .content-body ol { margin: 0 0 16px; padding-left: 22px; color: #33443b; font-size: 15px; line-height: 1.8; }
   .content-body li { margin-bottom: 6px; }
   .content-body blockquote { margin: 20px 0; padding: 4px 0 4px 16px; border-left: 3px solid #16a34a; color: #607068; font-size: 14px; }
   .content-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 8px 0 20px; }
   .content-body hr { border: none; border-top: 1px solid #dce6e0; margin: 28px 0; }
+  /*
+    Kit's plain-text editor has no way to attach a custom class to a link, so
+    this pill-button style only applies if you paste raw HTML for that one
+    line (if Kit's editor exposes an HTML/source view). Otherwise, just make
+    the CTA a normal bold link -- .content-body a below already renders links
+    in the brand green.
+  */
   .content-body .btn,
   .content-body a.btn {
     display: inline-block;
@@ -101,9 +118,12 @@
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- Footer (fixed chrome text -- edit here, not per-campaign, to change it for every future send) -->
           <tr>
             <td class="email-padding" align="center" style="padding: 24px 40px 32px; font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',Helvetica,Arial,sans-serif;">
+              <p style="margin:0 0 16px; font-size:13px; line-height:1.7; color:#607068;">
+                喜歡這篇內容嗎？歡迎轉發給對企業 AI 工作流有興趣的朋友。
+              </p>
               <p style="margin:0 0 8px; font-size:12px; line-height:1.7; color:#95a29b;">
                 {{ address }}
               </p>
