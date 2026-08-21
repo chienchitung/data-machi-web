@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "../header";
 import { SiteFooter } from "../footer";
 import { getAllPosts } from "../../lib/blog";
+import { BlogCoverArt } from "./cover-art";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -24,7 +25,7 @@ export default function Blog() {
         {featured && (
           <a className="blog-featured" href={`/blog/${featured.slug}`}>
             <div className="blog-featured-visual" aria-hidden="true">
-              <span className="blog-featured-mark">D</span>
+              <BlogCoverArt />
             </div>
             <div className="blog-featured-content">
               <div className="blog-list-meta">

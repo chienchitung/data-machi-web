@@ -63,8 +63,7 @@ export function TrendChart({
       <figcaption className="trend-chart-title">{title}</figcaption>
 
       <div className="trend-chart-canvas">
-        <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} role="img" aria-labelledby={`${gradientId}-title`}>
-          <title id={`${gradientId}-title`}>{title}</title>
+        <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} role="img" aria-label={title}>
           <defs>
             <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="var(--green)" stopOpacity="0.16" />
@@ -143,7 +142,7 @@ export function TrendChart({
           />
         </svg>
 
-        {active && (
+        {active && activeIndex !== 0 && activeIndex !== points.length - 1 && (
           <div
             className="trend-chart-tooltip"
             style={{ left: `${(active.x / VIEW_W) * 100}%`, top: `${(active.y / VIEW_H) * 100}%` }}

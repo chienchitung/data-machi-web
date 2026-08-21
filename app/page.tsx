@@ -2,6 +2,7 @@ import { SiteHeader } from "./header";
 import { SiteFooter } from "./footer";
 import { FAQSection } from "./faq";
 import { getAllPosts } from "../lib/blog";
+import { BlogCoverArt } from "./blog/cover-art";
 
 const learningPaths = [
   {
@@ -344,7 +345,7 @@ export default function Home() {
 
           <a className="blog-featured" href={`/blog/${latestPost.slug}`}>
             <div className="blog-featured-visual" aria-hidden="true">
-              <span className="blog-featured-mark">D</span>
+              <BlogCoverArt />
             </div>
             <div className="blog-featured-content">
               <div className="blog-list-meta">
