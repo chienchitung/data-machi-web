@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import fs from "fs";
 import path from "path";
 import { getAllPosts, getPostBySlug } from "../../../lib/blog";
+import { BLOG_COVER_ART_SVG } from "../cover-art";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -16,7 +17,9 @@ const regular = fs.readFileSync(path.join(fontsDir, "NotoSansTC-Regular.ttf"));
 const semibold = fs.readFileSync(path.join(fontsDir, "NotoSansTC-SemiBold.ttf"));
 const bold = fs.readFileSync(path.join(fontsDir, "NotoSansTC-Bold.ttf"));
 
-const barHeights = [46, 74, 58, 96, 118];
+const coverArtDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(
+  BLOG_COVER_ART_SVG.replace('width="150" height="150"', 'width="340" height="340"')
+)}`;
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -132,60 +135,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               background: "radial-gradient(circle, rgba(34,197,94,0.14) 0%, rgba(34,197,94,0) 72%)",
             }}
           />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: 260,
-              padding: "28px 26px",
-              borderRadius: 24,
-              background: "#ffffff",
-              border: "1px solid #dce6e0",
-              boxShadow: "0 24px 48px rgba(14, 55, 35, 0.12)",
-            }}
-          >
-            <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 118 }}>
-              {barHeights.map((h, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    width: 30,
-                    height: h,
-                    borderRadius: 6,
-                    background: i === barHeights.length - 1 ? "#0d7134" : "#bfe6cc",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              position: "absolute",
-              right: 96,
-              bottom: 150,
-              width: 72,
-              height: 72,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              background: "#fff",
-              border: "1px solid #dce6e0",
-              boxShadow: "0 12px 24px rgba(14, 55, 35, 0.14)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                width: 0,
-                height: 0,
-                borderLeft: "10px solid transparent",
-                borderRight: "10px solid transparent",
-                borderBottom: "16px solid #0d7134",
-              }}
-            />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={coverArtDataUri} width={340} height={340} alt="" />
         </div>
       </div>
     ),
