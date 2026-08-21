@@ -1,5 +1,7 @@
 import { SiteHeader } from "./header";
 import { SiteFooter } from "./footer";
+import { FAQSection } from "./faq";
+import { getAllPosts } from "../lib/blog";
 
 const learningPaths = [
   {
@@ -83,6 +85,8 @@ const useCases = [
 ];
 
 export default function Home() {
+  const [latestPost] = getAllPosts();
+
   return (
     <main id="top">
       <SiteHeader />
@@ -327,6 +331,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {latestPost && (
+        <section className="blog-preview-section section-shell" id="insights">
+          <div className="section-intro">
+            <div>
+              <span className="section-kicker">FROM THE BLOG</span>
+              <h2>產業觀察與實作筆記。</h2>
+            </div>
+            <p>我們怎麼看待企業 AI 市場、平台選擇與實際踩過的坑，寫在部落格裡。</p>
+          </div>
+
+          <a className="blog-featured" href={`/blog/${latestPost.slug}`}>
+            <div className="blog-featured-visual" aria-hidden="true">
+              <span className="blog-featured-mark">D</span>
+            </div>
+            <div className="blog-featured-content">
+              <div className="blog-list-meta">
+                <span className="learning-tag">{latestPost.tag}</span>
+                <time dateTime={latestPost.date}>{latestPost.date}</time>
+              </div>
+              <h3>{latestPost.title}</h3>
+              <p>{latestPost.summary}</p>
+              <span className="blog-list-read">閱讀這一篇 →</span>
+            </div>
+          </a>
+
+          <a className="text-link blog-preview-link" href="/blog">查看所有文章</a>
+        </section>
+      )}
+
+      <FAQSection />
 
       <section className="final-section section-shell">
         <div className="final-card">
