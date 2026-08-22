@@ -7,7 +7,7 @@ export function SubscribeForm() {
     <div className="subscribe-box">
       <div className="subscribe-copy">
         <strong>訂閱 Data Machi</strong>
-        <span>新文章跟 30 天系列更新，直接寄到你的信箱，不寄推銷信。</span>
+        <span>我們發新文章時通知你，分享企業 AI 導入的實務觀察。</span>
       </div>
       <form action={KIT_FORM_ACTION} method="post" target="_blank" className="subscribe-form">
         <input type="email" name="email_address" required placeholder="你的 email" aria-label="Email" />
