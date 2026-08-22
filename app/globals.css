@@ -68,7 +68,7 @@ button, input { font: inherit; }
   font-weight: 800;
 }
 .brand-copy { display: flex; flex-direction: column; line-height: 1; }
-.brand-copy strong { font-size: 18px; letter-spacing: -0.02em; }
+.brand-copy strong { font-size: 20px; letter-spacing: -0.02em; }
 .nav-links { justify-self: center; display: flex; align-items: center; gap: 30px; color: #53635b; font-size: 13px; font-weight: 600; }
 .nav-item { position: relative; }
 .nav-item-trigger { position: relative; display: inline-flex; align-items: center; gap: 5px; padding: 29px 0; }
