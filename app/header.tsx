@@ -31,7 +31,6 @@ export function SiteHeader() {
           <span className="brand-mark">D</span>
           <span className="brand-copy">
             <strong>Data Machi</strong>
-            <small>Enterprise AI Workflow</small>
           </span>
         </a>
 

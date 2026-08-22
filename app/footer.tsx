@@ -17,7 +17,7 @@ export function SiteFooter() {
           <div className="footer-brand">
             <a className="brand" href="/" aria-label="Data Machi 首頁">
               <span className="brand-mark">D</span>
-              <span className="brand-copy"><strong>Data Machi</strong><small>Enterprise AI Workflow</small></span>
+              <span className="brand-copy"><strong>Data Machi</strong></span>
             </a>
             <p>從 RAG 到 Agentic Workflow，30 天建立真正能完成工作的企業 AI 知識工作流。</p>
           </div>

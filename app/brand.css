@@ -15,15 +15,6 @@
   font-weight: 600;
 }
 
-.brand-copy small {
-  color: #16a34a;
-  font-family: 'Poppins', 'Inter', 'Noto Sans TC', sans-serif;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-
 /* Blog byline avatar reuses the mark instead of a lettermark tile. */
 .blog-author-avatar {
   color: transparent;
