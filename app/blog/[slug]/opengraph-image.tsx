@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { getAllPosts, getPostBySlug } from "../../../lib/blog";
 import { BLOG_COVER_ART_SVG } from "../cover-art";
+import { BRAND_MARK_SVG } from "../../logo";
 
 // Rendered at 2x (2400x1260) and downscaled by the platform on display —
 // keeps text and thin lines crisp after LinkedIn/Facebook's own image
@@ -23,6 +24,8 @@ const bold = fs.readFileSync(path.join(fontsDir, "NotoSansTC-Bold.ttf"));
 const coverArtDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(
   BLOG_COVER_ART_SVG.replace('width="150" height="150"', 'width="340" height="340"')
 )}`;
+
+const brandMarkDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(BRAND_MARK_SVG)}`;
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -59,7 +62,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   alignSelf: "flex-start",
                   padding: "8px 16px",
                   borderRadius: 999,
-                  background: "#dcfce7",
+                  background: "#a7f3d0",
                   color: "#0f7a3b",
                   fontSize: 20,
                   fontWeight: 700,
@@ -97,22 +100,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             <div style={{ display: "flex", width: "100%", height: 1, background: "#dce6e0" }} />
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: 44,
-                  height: 44,
-                  borderRadius: 13,
-                  background: "linear-gradient(145deg, #22c55e, #0f8b42)",
-                  color: "#fff",
-                  fontSize: 22,
-                  fontWeight: 700,
-                }}
-              >
-                D
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={brandMarkDataUri} width={46} height={46} alt="" />
               <div style={{ display: "flex", fontSize: 24, fontWeight: 600, color: "#0b1f17" }}>
                 Data Machi
               </div>

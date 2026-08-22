@@ -1,7 +1,7 @@
 export const BLOG_COVER_ART_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="150" height="150">
   <g transform="rotate(-7 100 96)">
     <rect x="44" y="36" width="112" height="136" rx="14" fill="#fff" stroke="#dce6e0"/>
-    <rect x="62" y="60" width="58" height="9" rx="4.5" fill="#dcfce7"/>
+    <rect x="62" y="60" width="58" height="9" rx="4.5" fill="#a7f3d0"/>
     <rect x="62" y="80" width="76" height="6" rx="3" fill="#eef3ef"/>
     <rect x="62" y="94" width="76" height="6" rx="3" fill="#eef3ef"/>
     <rect x="62" y="108" width="50" height="6" rx="3" fill="#eef3ef"/>

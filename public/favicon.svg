@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Data Machi">
-  <rect width="64" height="64" rx="14" fill="#16A34A"/>
-  <path d="M18 17h15c10 0 17 6 17 15s-7 15-17 15H18V17zm9 8v14h6c5 0 8-3 8-7s-3-7-8-7h-6z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 10 94 94" role="img" aria-label="Data Machi">
+  <rect x="13" y="10" width="94" height="94" rx="22" fill="#ffffff"/>
+  <g transform="translate(60,32) scale(1,0.55) rotate(45)" fill="none" stroke="#0b1f17" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0 0 L 21 0 L 21 21 L -21 21 L -21 -21 L 21 -21 L 21 -10"/>
+  </g>
+  <g transform="translate(60,50) scale(1,0.55) rotate(45)" fill="none" stroke="#16a34a" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -21 21 L 21 21 L 21 -21"/>
+  </g>
+  <g transform="translate(60,66) scale(1,0.55) rotate(45)" fill="none" stroke="#0d7134" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -21 21 L 21 21 L 21 -21"/>
+  </g>
+  <g transform="translate(60,82) scale(1,0.55) rotate(45)" fill="none" stroke="#a7f3d0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -21 21 L 21 21 L 21 -21"/>
+  </g>
 </svg>

@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 10 94 94" role="img" aria-label="Data Machi">
-  <rect x="13" y="10" width="94" height="94" rx="22" fill="#ffffff"/>
+// Canonical Data Machi brand mark: an isometric "D" spiral over three
+// stacked chevron layers (knowledge / system / modular), per the brand
+// identity spec. Colors are the brand palette: ink #0b1f17, green
+// #16a34a, deep green #0d7134, mint #a7f3d0.
+//
+// Keep in sync with public/favicon.svg and app/icon.svg, which embed the
+// same artwork (plus a white tile background for browser-tab legibility)
+// as standalone files.
+export const BRAND_MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 10 94 94">
   <g transform="translate(60,32) scale(1,0.55) rotate(45)" fill="none" stroke="#0b1f17" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
     <path d="M 0 0 L 21 0 L 21 21 L -21 21 L -21 -21 L 21 -21 L 21 -10"/>
   </g>
@@ -12,4 +19,4 @@
   <g transform="translate(60,82) scale(1,0.55) rotate(45)" fill="none" stroke="#a7f3d0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
     <path d="M -21 21 L 21 21 L 21 -21"/>
   </g>
-</svg>
+</svg>`;
