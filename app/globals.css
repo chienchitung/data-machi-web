@@ -342,7 +342,7 @@ button, input { font: inherit; }
 .faq-answer-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
 .faq-item.is-open .faq-answer-wrap { grid-template-rows: 1fr; }
 .faq-answer-inner { overflow: hidden; }
-.faq-answer { max-width: 640px; margin: 0; padding: 0 32px 26px 4px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.faq-answer { max-width: 720px; margin: 0; padding: 0 32px 26px 4px; color: var(--muted); font-size: 15px; line-height: 1.85; }
 
 /* Final CTA */
 .final-section { padding-bottom: 110px; }
