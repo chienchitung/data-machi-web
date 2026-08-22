@@ -15,7 +15,7 @@ export default function Pricing() {
       <section className="policy-section section-shell">
         <div className="policy-header">
           <span className="section-kicker">PRICING</span>
-          <h1>目前完全免費。</h1>
+          <h1>目前完全免費</h1>
           <p className="policy-updated">沒有隱藏費用，沒有付費牆。</p>
         </div>
 
