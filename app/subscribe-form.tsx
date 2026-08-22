@@ -1,10 +1,10 @@
 const KIT_FORM_ACTION = process.env.NEXT_PUBLIC_KIT_FORM_ACTION;
 
-export function SubscribeForm() {
+export function SubscribeForm({ compact = false }: { compact?: boolean }) {
   if (!KIT_FORM_ACTION) return null;
 
   return (
-    <div className="subscribe-box">
+    <div className={compact ? "subscribe-box subscribe-box-compact" : "subscribe-box"}>
       <div className="subscribe-copy-row">
         <div className="subscribe-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
