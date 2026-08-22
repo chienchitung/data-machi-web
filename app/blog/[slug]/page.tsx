@@ -135,10 +135,7 @@ export default async function BlogPost({
             <SubscribeForm />
           </div>
 
-          <aside className="blog-sidebar">
-            <BlogToc headings={headings} />
-            <SubscribeForm compact />
-          </aside>
+          <BlogToc headings={headings} />
         </div>
       </article>
 
