@@ -23,8 +23,8 @@ function getNodeText(node: React.ReactNode): string {
 }
 
 const copy = {
-  zh: { back: "← 回到 Blog", readingMinutes: (n: number) => `${n} 分鐘閱讀`, author: "Data Machi 團隊", authorRole: "內容製作" },
-  en: { back: "← Back to Blog", readingMinutes: (n: number) => `${n} min read`, author: "Data Machi Team", authorRole: "Content" },
+  zh: { back: "所有文章", readingMinutes: (n: number) => `${n} 分鐘閱讀`, author: "Data Machi 團隊", authorRole: "內容製作" },
+  en: { back: "All articles", readingMinutes: (n: number) => `${n} min read`, author: "Data Machi Team", authorRole: "Content" },
 } as const;
 
 export function generateStaticParams() {
@@ -110,7 +110,15 @@ export default async function BlogPost({
 
       <article className="policy-section section-shell">
         <div className="blog-topbar">
-          <a className="blog-back-top" href={localeHref(locale, "/blog")}>{t.back}</a>
+          <a className="blog-back-top" href={localeHref(locale, "/blog")}>
+            <span className="blog-back-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </span>
+            {t.back}
+          </a>
         </div>
 
         <div className="policy-header blog-post-header">

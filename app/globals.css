@@ -392,8 +392,11 @@ button, input { font: inherit; }
 
 /* Blog article: top bar, meta, byline + share */
 .blog-topbar { margin-bottom: 28px; }
-.blog-back-top { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; font-weight: 600; }
+.blog-back-top { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; font-weight: 600; }
 .blog-back-top:hover { color: var(--green-dark); }
+.blog-back-icon { display: grid; place-items: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; transition: background .2s ease; }
+.blog-back-icon svg { width: 14px; height: 14px; }
+.blog-back-top:hover .blog-back-icon { background: var(--green-dark); }
 
 .blog-post-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; }
 .blog-post-meta .meta-dot { color: var(--line); }
