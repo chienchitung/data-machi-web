@@ -1,9 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { BlogHeading } from "../../../lib/blog";
+import type { BlogHeading } from "../../../../lib/blog";
+import type { Locale } from "../../../i18n";
 
-export function BlogToc({ headings }: { headings: BlogHeading[] }) {
+const copy = {
+  zh: { nav: "文章大綱", label: "本篇大綱" },
+  en: { nav: "Table of contents", label: "On this page" },
+} as const;
+
+export function BlogToc({ headings, locale }: { headings: BlogHeading[]; locale: Locale }) {
+  const t = copy[locale];
   const [activeId, setActiveId] = useState<string>(headings[0]?.id ?? "");
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -31,8 +38,8 @@ export function BlogToc({ headings }: { headings: BlogHeading[] }) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="blog-toc" aria-label="文章大綱">
-      <span className="blog-toc-label">本篇大綱</span>
+    <nav className="blog-toc" aria-label={t.nav}>
+      <span className="blog-toc-label">{t.label}</span>
       <ul>
         {headings.map((heading) => (
           <li key={heading.id}>

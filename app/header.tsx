@@ -1,40 +1,77 @@
 import { MobileNav } from "./mobile-nav";
+import { LanguageSwitcher } from "./language-switcher";
+import { localeHref, type Locale } from "./i18n";
 
-export const productLinks = [
-  { href: "/#product", label: "產品理念" },
-  { href: "/#framework", label: "能力模型" },
-];
+const copy = {
+  zh: {
+    homeLabel: "Data Machi 首頁",
+    product: "產品",
+    productItems: [
+      { href: "/#product", label: "產品理念" },
+      { href: "/#framework", label: "能力模型" },
+    ],
+    solution: { href: "/#solution", label: "解決方案" },
+    resources: "資源",
+    resourceItems: [
+      { href: "https://www.data-machi.com/docs", label: "30 天系列" },
+      { href: "/blog", label: "部落格" },
+    ],
+    pricing: { href: "/pricing", label: "定價" },
+    nav: "主要導覽",
+    cta: { href: "https://www.data-machi.com/docs", label: "開始閱讀" },
+  },
+  en: {
+    homeLabel: "Data Machi home",
+    product: "Product",
+    productItems: [
+      { href: "/#product", label: "Product Thinking" },
+      { href: "/#framework", label: "Maturity Model" },
+    ],
+    solution: { href: "/#solution", label: "Solutions" },
+    resources: "Resources",
+    resourceItems: [
+      { href: "https://www.data-machi.com/docs", label: "30-Day Series" },
+      { href: "/blog", label: "Blog" },
+    ],
+    pricing: { href: "/pricing", label: "Pricing" },
+    nav: "Main navigation",
+    cta: { href: "https://www.data-machi.com/docs", label: "Start Reading" },
+  },
+} as const;
 
-export const solutionLink = { href: "/#solution", label: "解決方案" };
+export function getNavData(locale: Locale) {
+  const t = copy[locale];
+  const productLinks = t.productItems.map((item) => ({ ...item, href: localeHref(locale, item.href) }));
+  const solutionLink = { ...t.solution, href: localeHref(locale, t.solution.href) };
+  const resourceLinks = t.resourceItems.map((item) => ({ ...item, href: localeHref(locale, item.href) }));
+  const pricingLink = { ...t.pricing, href: localeHref(locale, t.pricing.href) };
+  const docsCta = { ...t.cta };
 
-export const resourceLinks = [
-  { href: "https://www.data-machi.com/docs", label: "30 天系列" },
-  { href: "/blog", label: "部落格" },
-];
+  const navSections = [
+    { label: t.product, href: productLinks[0].href, items: productLinks },
+    { label: solutionLink.label, href: solutionLink.href },
+    { label: t.resources, href: resourceLinks[0].href, items: resourceLinks },
+    { label: pricingLink.label, href: pricingLink.href },
+  ];
 
-export const pricingLink = { href: "/pricing", label: "定價" };
+  return { productLinks, solutionLink, resourceLinks, pricingLink, docsCta, navSections };
+}
 
-export const navSections = [
-  { label: "產品", href: productLinks[0].href, items: productLinks },
-  { label: "解決方案", href: solutionLink.href },
-  { label: "資源", href: resourceLinks[0].href, items: resourceLinks },
-  { label: "定價", href: pricingLink.href },
-];
+export function SiteHeader({ locale }: { locale: Locale }) {
+  const t = copy[locale];
+  const { navSections, docsCta } = getNavData(locale);
 
-export const docsCta = { href: "https://www.data-machi.com/docs", label: "開始閱讀" };
-
-export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <a className="brand" href="/" aria-label="Data Machi 首頁">
+        <a className="brand" href={localeHref(locale, "/")} aria-label={t.homeLabel}>
           <span className="brand-mark">D</span>
           <span className="brand-copy">
             <strong>Data Machi</strong>
           </span>
         </a>
 
-        <nav className="nav-links" aria-label="主要導覽">
+        <nav className="nav-links" aria-label={t.nav}>
           {navSections.map((section) => (
             <div className="nav-item" key={section.label}>
               <a href={section.href} className={`nav-item-trigger${section.items ? " has-dropdown" : ""}`}>
@@ -57,11 +94,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <MobileNav sections={navSections} cta={docsCta} />
+        <MobileNav sections={navSections} cta={docsCta} locale={locale} />
 
-        <a className="nav-cta" href={docsCta.href}>
-          {docsCta.label}
-        </a>
+        <div className="header-actions">
+          <LanguageSwitcher locale={locale} />
+          <a className="nav-cta" href={docsCta.href}>
+            {docsCta.label}
+          </a>
+        </div>
       </div>
     </header>
   );

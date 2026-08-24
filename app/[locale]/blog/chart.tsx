@@ -12,16 +12,23 @@ const PAD_TOP = 32;
 const PAD_BOTTOM = 30;
 const GRID_VALUES = [0, 50, 100];
 
+const copy = {
+  zh: (title: string) => `${title}，使用左右鍵瀏覽數值`,
+  en: (title: string) => `${title}, use left/right arrow keys to browse values`,
+};
+
 export function TrendChart({
   title,
   unit = "",
   data: dataProp,
   caption,
+  locale = "zh",
 }: {
   title: string;
   unit?: string;
   data: TrendPoint[] | string;
   caption?: string;
+  locale?: "zh" | "en";
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const gradientId = useId();
@@ -138,7 +145,7 @@ export function TrendChart({
               if (event.key === "ArrowRight") setActiveIndex(Math.min(activeIndex + 1, points.length - 1));
               if (event.key === "ArrowLeft") setActiveIndex(Math.max(activeIndex - 1, 0));
             }}
-            aria-label={`${title}，使用左右鍵瀏覽數值`}
+            aria-label={copy[locale](title)}
           />
         </svg>
 

@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
 import fs from "fs";
 import path from "path";
-import { getAllPosts, getPostBySlug } from "../../../lib/blog";
+import { getAllPosts, getPostBySlug } from "../../../../lib/blog";
 import { BLOG_COVER_ART_SVG } from "../cover-art";
-import { BRAND_MARK_SVG } from "../../logo";
+import { BRAND_MARK_SVG } from "../../../logo";
+import { locales, asLocale } from "../../../i18n";
 
 // Rendered at 2x (2400x1260) and downscaled by the platform on display —
 // keeps text and thin lines crisp after LinkedIn/Facebook's own image
@@ -13,7 +14,7 @@ export const contentType = "image/png";
 export const alt = "Data Machi";
 
 export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  return locales.flatMap((locale) => getAllPosts(locale).map((post) => ({ locale, slug: post.slug })));
 }
 
 const fontsDir = path.join(process.cwd(), "assets/fonts");
@@ -27,9 +28,10 @@ const coverArtDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(
 
 const brandMarkDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(BRAND_MARK_SVG)}`;
 
-export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+export default async function Image({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale: rawLocale, slug } = await params;
+  const locale = asLocale(rawLocale);
+  const post = getPostBySlug(locale, slug);
 
   return new ImageResponse(
     (

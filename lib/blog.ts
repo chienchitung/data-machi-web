@@ -1,8 +1,9 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { Locale } from "../app/i18n";
 
-const BLOG_DIR = path.join(process.cwd(), "content/blog");
+const BLOG_ROOT = path.join(process.cwd(), "content/blog");
 
 export type BlogFrontmatter = {
   title: string;
@@ -60,11 +61,12 @@ export function estimateReadingMinutes(content: string): number {
   return Math.max(1, Math.round(plain.length / CHARS_PER_MINUTE));
 }
 
-export function getAllPosts(): BlogPost[] {
-  const files = fs.readdirSync(BLOG_DIR).filter((file) => file.endsWith(".mdx"));
+export function getAllPosts(locale: Locale): BlogPost[] {
+  const blogDir = path.join(BLOG_ROOT, locale);
+  const files = fs.readdirSync(blogDir).filter((file) => file.endsWith(".mdx"));
 
   const posts = files.map((file) => {
-    const raw = fs.readFileSync(path.join(BLOG_DIR, file), "utf8");
+    const raw = fs.readFileSync(path.join(blogDir, file), "utf8");
     const { data, content } = matter(raw);
     return { ...(data as BlogFrontmatter), content };
   });
@@ -72,6 +74,6 @@ export function getAllPosts(): BlogPost[] {
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return getAllPosts().find((post) => post.slug === slug);
+export function getPostBySlug(locale: Locale, slug: string): BlogPost | undefined {
+  return getAllPosts(locale).find((post) => post.slug === slug);
 }

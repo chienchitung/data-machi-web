@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import { SiteHeader } from "../../header";
-import { SiteFooter } from "../../footer";
-import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, slugify } from "../../../lib/blog";
+import { SiteHeader } from "../../../header";
+import { SiteFooter } from "../../../footer";
+import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, slugify } from "../../../../lib/blog";
 import { BlogToc } from "./toc";
 import { BlogShare } from "./share";
 import { TrendChart } from "../chart";
-import { SubscribeForm } from "../../subscribe-form";
+import { SubscribeForm } from "../../../subscribe-form";
+import { locales, localeHref, asLocale } from "../../../i18n";
 
 function getNodeText(node: React.ReactNode): string {
   if (node === null || node === undefined || typeof node === "boolean") return "";
@@ -21,36 +22,23 @@ function getNodeText(node: React.ReactNode): string {
   return "";
 }
 
-const mdxComponents = {
-  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <div className="table-scroll">
-      <table {...props} />
-    </div>
-  ),
-  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 id={slugify(getNodeText(children))} {...props}>
-      {children}
-    </h2>
-  ),
-  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 id={slugify(getNodeText(children))} {...props}>
-      {children}
-    </h3>
-  ),
-  TrendChart,
-};
+const copy = {
+  zh: { back: "← 回到 Blog", readingMinutes: (n: number) => `${n} 分鐘閱讀`, author: "Data Machi 團隊", authorRole: "內容製作" },
+  en: { back: "← Back to Blog", readingMinutes: (n: number) => `${n} min read`, author: "Data Machi Team", authorRole: "Content" },
+} as const;
 
 export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  return locales.flatMap((locale) => getAllPosts(locale).map((post) => ({ locale, slug: post.slug })));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { locale: rawLocale, slug } = await params;
+  const locale = asLocale(rawLocale);
+  const post = getPostBySlug(locale, slug);
   if (!post) return {};
 
   return {
@@ -61,7 +49,7 @@ export async function generateMetadata({
       description: post.summary,
       type: "article",
       publishedTime: post.date,
-      url: `https://www.data-machi.com/blog/${post.slug}`,
+      url: `https://www.data-machi.com/${locale}/blog/${post.slug}`,
     },
   };
 }
@@ -69,15 +57,36 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { locale: rawLocale, slug } = await params;
+  const locale = asLocale(rawLocale);
+  const t = copy[locale];
+  const post = getPostBySlug(locale, slug);
   if (!post) notFound();
 
   const headings = extractHeadings(post.content);
   const readingMinutes = estimateReadingMinutes(post.content);
-  const postUrl = `https://www.data-machi.com/blog/${post.slug}`;
+  const postUrl = `https://www.data-machi.com/${locale}/blog/${post.slug}`;
+
+  const mdxComponents = {
+    table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+      <div className="table-scroll">
+        <table {...props} />
+      </div>
+    ),
+    h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h2 id={slugify(getNodeText(children))} {...props}>
+        {children}
+      </h2>
+    ),
+    h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h3 id={slugify(getNodeText(children))} {...props}>
+        {children}
+      </h3>
+    ),
+    TrendChart: (props: React.ComponentProps<typeof TrendChart>) => <TrendChart {...props} locale={locale} />,
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -97,11 +106,11 @@ export default async function BlogPost({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SiteHeader />
+      <SiteHeader locale={locale} />
 
       <article className="policy-section section-shell">
         <div className="blog-topbar">
-          <a className="blog-back-top" href="/blog">← 回到 Blog</a>
+          <a className="blog-back-top" href={localeHref(locale, "/blog")}>{t.back}</a>
         </div>
 
         <div className="policy-header blog-post-header">
@@ -111,18 +120,18 @@ export default async function BlogPost({
             <time dateTime={post.date}>{post.date}</time>
           </div>
           <h1>{post.title}</h1>
-          <p className="blog-read-time">{readingMinutes} 分鐘閱讀</p>
+          <p className="blog-read-time">{t.readingMinutes(readingMinutes)}</p>
         </div>
 
         <div className="blog-byline-row">
           <div className="blog-author">
             <span className="blog-author-avatar" aria-hidden="true">D</span>
             <div className="blog-author-copy">
-              <strong>Data Machi 團隊</strong>
-              <span>內容製作</span>
+              <strong>{t.author}</strong>
+              <span>{t.authorRole}</span>
             </div>
           </div>
-          <BlogShare title={post.title} url={postUrl} />
+          <BlogShare title={post.title} url={postUrl} locale={locale} />
         </div>
 
         <div className="blog-article-grid">
@@ -132,14 +141,14 @@ export default async function BlogPost({
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
               components={mdxComponents}
             />
-            <SubscribeForm />
+            <SubscribeForm locale={locale} />
           </div>
 
-          <BlogToc headings={headings} />
+          <BlogToc headings={headings} locale={locale} />
         </div>
       </article>
 
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </main>
   );
 }

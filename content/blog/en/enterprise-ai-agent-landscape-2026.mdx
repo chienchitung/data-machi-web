@@ -1,0 +1,76 @@
+---
+title: "Why Most Enterprise AI Agent Projects Stall — And What Data Machi Fills In"
+slug: "enterprise-ai-agent-landscape-2026"
+date: "2026-08-20"
+summary: "The enterprise AI Agent market is growing fast, but most projects stall on a \"judgment gap,\" not a tooling gap. This piece rounds up the latest research and explains where Data Machi fits."
+tag: "Industry Notes"
+---
+
+The enterprise AI Agent market is growing fast, but most projects don't fail because the model isn't smart enough or there aren't enough platforms to choose from. They fail because **teams lack a shared mental model for how an Agent should be designed and trusted**. Existing platforms — LangChain, Dify, Copilot Studio, Salesforce Agentforce, iKala Nexus, and others — solve "how do you build and run an Agent." Data Machi is trying to fill in the step before that: helping teams build the judgment to answer "why do Agents fail, which decisions should an AI make, and which shouldn't it." We're not a competing product right now — we're a 30-day, systematic learning path.
+
+## A fast-growing market with an equally high failure rate
+
+The enterprise AI Agent market reached roughly $10.9B in 2026, growing at a 49.6% CAGR. Gartner also projects that by the end of 2026, 40% of enterprise applications will embed task-oriented AI Agents.
+
+But growth has a flip side: an equally striking failure rate. Industry research points to the root cause of production Agent failures not being "the model isn't smart enough," but **gaps in engineering and governance capability** — unclear goals, runaway costs, and value that's hard to quantify. Gartner has gone so far as to warn that over 40% of AI Agent projects will be cancelled by the end of 2027.
+
+Taiwanese enterprises face similar pain points. The three most common are **data silos** (data scattered across systems, so the AI can't see the full context), **token cost** (a multi-step Agent can stack up a large number of calls in a single conversation, making cost hard to predict), and a **judgment gap** (teams aren't clear on what an Agent can and can't do, or how to assess the risk).
+
+## Why "looks like it works" and "actually ready for production" are different things
+
+One often-overlooked number captures the problem well: if a single Agent step is 95% reliable, that sounds high enough. But once that Agent needs to chain 10 steps to complete a task, the overall success rate drops to roughly 59% — because error compounds step by step rather than averaging out. This is exactly where multi-step Agentic Workflows get most easily underestimated.
+
+<TrendChart
+  title="Success rate after compounding a 95%-reliable step across 10 steps"
+  unit="%"
+  data='[{"label":"1 step","value":95},{"label":"2 steps","value":90.3},{"label":"3 steps","value":85.7},{"label":"4 steps","value":81.5},{"label":"5 steps","value":77.4},{"label":"6 steps","value":73.5},{"label":"7 steps","value":69.8},{"label":"8 steps","value":66.3},{"label":"9 steps","value":63.0},{"label":"10 steps","value":59.9}]'
+  caption="Method: success rate = 0.95 raised to the number of steps. Each step's reliability is assumed independent; real-world numbers vary by task and tooling — this is only meant to illustrate the scale of the compounding effect."
+/>
+
+Another shift worth noting: the latest failure-case research shows "hallucination" is no longer the leading cause of Agent failure, accounting for less than 10% of cases. What's actually growing fast is **execution- and action-layer failure** — calling the wrong tool, state going out of sync, a workflow stalling at a step nobody picks up. In other words, swapping in a more accurate model alone won't solve most of this, because the problem was never really about the model's language ability — it's about system design: who's responsible for computation, who's responsible for judgment, and who can step in when something goes wrong.
+
+## What the existing platforms actually solve
+
+Laying out the options at home and abroad, they roughly fall into four lanes — a grouping that shows up in a similar form across several Taiwanese industry analyses:
+
+| Lane | Representative platforms | Best for | Main limitation |
+|---|---|---|---|
+| Dev frameworks | LangChain / LangGraph | Engineering teams that want full code-level control | Maximum flexibility, but also the heaviest engineering investment |
+| Low-code / open source | Dify, n8n, Coze, Langflow | PMs, marketers, SMBs that want to prototype fast | Feature sets have become highly homogeneous since 2026 (RAG, multi-model, no-code are now table stakes) — hard to differentiate on the feature list alone |
+| Big-tech ecosystems | Microsoft Copilot Studio, Salesforce Agentforce | Enterprises already deeply committed to that ecosystem | Vendor lock-in; a 10-person team's first year on Agentforce runs roughly $140K, with 3 price increases within two years |
+| Taiwan-local brands | iKala Nexus, AltaBots.ai (Data-DI), 91APP AgentOne, MaiAgent, EgentHub | Enterprises that need Chinese-language context, on-prem deployment, or hands-on consulting | Mostly bundled with consulting services or a specific industry vertical — harder to self-serve and scale |
+
+The shared assumption across all four lanes is: **the team already knows what problem it's solving, and how to judge whether this Agent is trustworthy**. In reality, most teams stall before that assumption even holds — which is also why the failure rate hasn't dropped even as feature lists converge.
+
+## How to pick among the Taiwan-local brands
+
+The local field looks crowded, but pull it apart and the entry points differ more than they first appear:
+
+| Platform | Positioning | Deployment | Key differentiator |
+|---|---|---|---|
+| iKala Nexus | Untangling messy data, embedding AI into core workflows | Custom, on-prem / hybrid cloud | Google Cloud partnership, serves a large volume of enterprise clients across industries |
+| AltaBots.ai (Data-DI) | No-code Agent building | Not clearly specified | Consultants stay hands-on from decision-making through deployment |
+| 91APP AgentOne | Vertical Agents for retail / food service | Emphasizes a data-isolation sandbox | Deep integration with 91APP's existing retail ecosystem and security controls |
+| MaiAgent | Enterprise AI assistants, knowledge management, smart customer service | Public cloud / private cloud / on-prem | ISO 27001 and 27701 dual certification; claims 95% accuracy on its proprietary RAG |
+| EgentHub | Turning enterprise know-how into a continuously improvable AI SOP | SaaS / private cloud / on-prem | Built-in RBAC and full audit trails, connects to ERP/CRM/SSO via the MCP protocol |
+
+What these five have in common is that **they're all moving toward "an AI asset the enterprise owns and can govern itself."** The difference is in what they solve for first — data security and governance (MaiAgent and EgentHub's certifications and audit trails), a specific industry scenario (91APP), or the talent gap during rollout (AltaBots' hands-on consulting). That reinforces the earlier point: **platforms are no longer competing on whether a feature exists, but on whether the enterprise trusts this Agent enough to put it into production.**
+
+## Where Data Machi fits in
+
+Data Machi isn't an Agent development platform right now, and we haven't shipped any product or paid service — we're a free, 30-day, systematic learning series covering RAG, Tool Use, Agent, and Agentic Workflow. The goal is to make "why enterprise AI stalls" genuinely clear, rather than rushing out a flashy demo.
+
+We believe reliable enterprise AI needs to handle knowledge, computation, tools, decisions, and control together — not just a bigger model. That's also why we treat "separating out the decision logic" (letting code own computation and rules, letting the model own understanding intent) as our core methodology rather than a product pitch. Whether you end up building on LangChain yourself, prototyping fast with Dify, or bringing in a service provider like iKala, this judgment still applies.
+
+## What we offer right now
+
+Completely free and openly readable, no registration or payment required:
+
+- **[The 30-day series](https://www.data-machi.com/docs)**: a full learning path and implementation details from RAG to Agentic Workflow
+- **[Product thinking and the maturity model](/#product)**: how we think about "enterprise AI product"
+
+If your team is evaluating whether to adopt an AI Agent, or is already stuck at some stage, feel free to reach out at [support@data-machi.com](mailto:support@data-machi.com) — we're happy to share our take based on your situation.
+
+---
+
+**Sources**: the market size, failure rate, and reliability figures cited in this article are compiled from public Gartner forecasts, industry research from DevRev and TrueFoundry, and analysis of the Taiwan market from 是實在智能 (Zeals), iKala, Data-DI, 91APP, MaiAgent, and EgentHub's own public materials. Exact figures may vary by methodology; each platform's feature and certification claims are drawn from its own public disclosures and are for reference only.
