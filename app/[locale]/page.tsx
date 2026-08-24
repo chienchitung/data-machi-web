@@ -124,11 +124,11 @@ const copy = {
   },
   en: {
     releasePill: "30-Day Enterprise AI Workflow Learning Series",
-    heroTitleLine1: "Turn enterprise knowledge,",
-    heroTitleLine2: "tools, and decisions",
-    heroTitleLine3a: "into AI that actually",
-    heroTitleLine3b: "gets work done",
-    heroDescription: "Data Machi starts from RAG and works step by step through Tool Use, Agent, and Agentic Workflow — helping you see how an AI system evolves from \"answering questions\" to \"reliably getting work done.\"",
+    heroTitleLine1: "Enterprise AI",
+    heroTitleLine2: "",
+    heroTitleLine3a: "that actually",
+    heroTitleLine3b: "works",
+    heroDescription: "A free 30-day path from RAG to Agentic Workflow — enterprise AI that reliably gets work done.",
     startReading: "Start the 30-Day Series",
     exploreProduct: "Explore the Product",
     heroStatsLabel: "Series summary",
@@ -262,8 +262,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
             <h1>
               {t.heroTitleLine1}
-              <br />
-              {t.heroTitleLine2}
+              {t.heroTitleLine2 && (
+                <>
+                  <br />
+                  {t.heroTitleLine2}
+                </>
+              )}
               <span>
                 {t.heroTitleLine3a}
                 <br />
