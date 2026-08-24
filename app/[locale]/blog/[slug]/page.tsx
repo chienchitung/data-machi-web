@@ -7,8 +7,8 @@ import { SiteFooter } from "../../../footer";
 import { getAllPosts, getPostBySlug, extractHeadings, estimateReadingMinutes, slugify } from "../../../../lib/blog";
 import { BlogToc } from "./toc";
 import { BlogShare } from "./share";
+import { BlogSidebarCTA } from "./sidebar-cta";
 import { TrendChart } from "../chart";
-import { SubscribeForm } from "../../../subscribe-form";
 import { locales, localeHref, asLocale } from "../../../i18n";
 
 function getNodeText(node: React.ReactNode): string {
@@ -149,10 +149,12 @@ export default async function BlogPost({
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
               components={mdxComponents}
             />
-            <SubscribeForm locale={locale} />
           </div>
 
-          <BlogToc headings={headings} locale={locale} />
+          <aside className="blog-sidebar">
+            <BlogToc headings={headings} locale={locale} />
+            <BlogSidebarCTA locale={locale} />
+          </aside>
         </div>
       </article>
 
