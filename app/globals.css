@@ -423,13 +423,13 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .footer-nav-group a:hover { color: var(--green-dark); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0 32px; border-top: 1px solid var(--line); }
 .footer-bottom small { color: #53665b; font-size: 11px; }
-/* Mobile-only language links — desktop already has the header's globe
-   dropdown, so this stays hidden until the mobile-nav breakpoint. */
-.footer-lang { display: none; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
-.footer-lang a { color: #8b978f; transition: color .15s ease; }
-.footer-lang a:hover { color: var(--ink); }
-.footer-lang a.is-active { color: var(--green-dark); }
-.footer-lang-divider { color: var(--line); }
+.footer-controls { display: flex; align-items: center; gap: 16px; }
+/* Mobile-only segmented language pill — desktop already has the
+   header's globe dropdown, so this stays hidden until the mobile-nav
+   breakpoint. */
+.footer-lang { display: none; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface-soft); }
+.footer-lang a { padding: 6px 13px; border-radius: 999px; color: #7a8881; font-size: 12px; font-weight: 700; transition: .15s ease; }
+.footer-lang a.is-active { color: var(--ink); background: #fff; box-shadow: 0 1px 3px rgba(11, 31, 23, .1); }
 .back-to-top { display: inline-flex; align-items: center; gap: 9px; color: #445d51; font-size: 12px; font-weight: 700; }
 .back-to-top span { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--line); border-radius: 50%; background: #fff; transition: .2s ease; }
 .back-to-top:hover span { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
@@ -659,6 +659,7 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
   .footer-top { padding-bottom: 32px; }
   .footer-nav { flex-direction: column; gap: 28px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; padding: 20px 0 28px; }
+  .footer-controls { width: 100%; justify-content: space-between; }
   .policy-section { padding: 120px 0 76px; }
   .cookie-banner { right: 12px; bottom: 12px; left: 12px; padding: 18px; }
   .cookie-banner-actions { flex: 1 1 100%; }

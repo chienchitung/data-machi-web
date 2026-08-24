@@ -48,26 +48,24 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
 }
 
 /**
- * Flat "繁體中文 · English" link pair for the site footer. Shown only
- * on mobile (hidden on desktop via CSS) — desktop already has the
- * globe dropdown in the header.
+ * Segmented "中文｜EN" pill for the site footer. Shown only on mobile
+ * (hidden on desktop via CSS) — desktop already has the globe dropdown
+ * in the header.
  */
 export function FooterLanguageSwitcher({ locale }: { locale: Locale }) {
   const links = useLocaleLinks(locale);
 
   return (
-    <div className="footer-lang" aria-label="Language">
-      {links.map((link, index) => (
-        <span key={link.locale} style={{ display: "contents" }}>
-          {index > 0 && <span className="footer-lang-divider" aria-hidden="true">·</span>}
-          <a
-            href={link.href}
-            className={link.active ? "is-active" : undefined}
-            aria-current={link.active ? "true" : undefined}
-          >
-            {fullNames[link.locale]}
-          </a>
-        </span>
+    <div className="footer-lang" role="group" aria-label="Language">
+      {links.map((link) => (
+        <a
+          key={link.locale}
+          href={link.href}
+          className={link.active ? "is-active" : undefined}
+          aria-current={link.active ? "true" : undefined}
+        >
+          {shortNames[link.locale]}
+        </a>
       ))}
     </div>
   );

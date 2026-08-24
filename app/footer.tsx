@@ -79,10 +79,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
         <div className="footer-bottom">
           <small>© {new Date().getFullYear()} Data Machi. {t.rights}</small>
-          <FooterLanguageSwitcher locale={locale} />
-          <a className="back-to-top" href="#top">
-            {t.backToTop} <span aria-hidden="true">↑</span>
-          </a>
+          <div className="footer-controls">
+            <FooterLanguageSwitcher locale={locale} />
+            <a className="back-to-top" href="#top">
+              {t.backToTop} <span aria-hidden="true">↑</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
