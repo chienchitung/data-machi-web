@@ -13,7 +13,7 @@ const copy = {
     heroTitleLine2: "工具與決策，",
     heroTitleLine3a: "串成真正能工作的",
     heroTitleLine3b: "AI",
-    heroDescription: "Data Machi 從 RAG 出發，逐步走到 Tool Use、Agent 與 Agentic Workflow，幫你看懂一個 AI 系統如何從「回答問題」進化到「可靠完成工作」。",
+    heroDescription: "從 RAG 到 Agentic Workflow，30 天打造真正能完成工作的企業 AI。",
     startReading: "開始閱讀 30 天系列",
     exploreProduct: "探索產品",
     heroStatsLabel: "系列摘要",
