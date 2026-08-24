@@ -1,18 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MobileLanguageGroup } from "./language-switcher";
 import type { Locale } from "./i18n";
 
 type NavLink = { href: string; label: string; external?: boolean };
 type NavSection = { label: string; href: string; items?: NavLink[] };
 
 const copy = {
-  zh: { open: "開啟選單", close: "關閉選單", nav: "行動版導覽", language: "語言" },
-  en: { open: "Open menu", close: "Close menu", nav: "Mobile navigation", language: "Language" },
+  zh: { open: "開啟選單", close: "關閉選單", nav: "行動版導覽" },
+  en: { open: "Open menu", close: "Close menu", nav: "Mobile navigation" },
 } as const;
-
-const LANG_KEY = "__lang__";
 
 export function MobileNav({
   sections,
@@ -91,19 +88,9 @@ export function MobileNav({
           )}
         </div>
 
-        <div className="mobile-nav-footer">
-          <MobileLanguageGroup
-            locale={locale}
-            label={t.language}
-            open={expanded === LANG_KEY}
-            onToggle={() => setExpanded((value) => (value === LANG_KEY ? null : LANG_KEY))}
-            onNavigate={close}
-          />
-
-          <a className="mobile-nav-cta" href={cta.href} onClick={close}>
-            {cta.label}
-          </a>
-        </div>
+        <a className="mobile-nav-cta" href={cta.href} onClick={close}>
+          {cta.label}
+        </a>
       </nav>
     </div>
   );

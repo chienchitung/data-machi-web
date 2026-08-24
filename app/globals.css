@@ -185,28 +185,12 @@ button, input { font: inherit; }
 .mobile-nav-links { display: flex; flex-direction: column; }
 .mobile-nav-link, .mobile-nav-group-trigger { padding: 17px 4px; border-bottom: 1px solid var(--line); color: #384942; font-size: 16px; font-weight: 700; letter-spacing: -.01em; text-align: left; }
 .mobile-nav-group-trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; background: none; border-top: 0; border-right: 0; border-left: 0; cursor: pointer; }
-.mobile-nav-lang-label { display: inline-flex; align-items: center; gap: 10px; }
-.mobile-nav-lang-label svg { width: 18px; height: 18px; color: #7a8881; }
 .mobile-nav-chevron { width: 8px; height: 8px; border-right: 1.5px solid #7a8881; border-bottom: 1.5px solid #7a8881; transform: rotate(45deg); transition: transform .2s ease; }
 .mobile-nav-group-trigger.is-open .mobile-nav-chevron { transform: rotate(225deg); }
 .mobile-nav-subitems { display: flex; flex-direction: column; padding: 4px 0 12px 14px; border-bottom: 1px solid var(--line); }
 .mobile-nav-subitems a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 4px; color: #57685f; font-size: 14px; font-weight: 600; }
 .mobile-nav-subitems a.is-active { color: var(--green-dark); }
-
-/* Footer zone: pinned to the bottom of the full-bleed panel, visually
-   separated from the primary nav links so language doesn't read as
-   just another nav item. */
-.mobile-nav-footer { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
-.mobile-nav-footer .mobile-nav-group-trigger {
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: #53635b;
-  font-size: 14px;
-  font-weight: 600;
-}
-.mobile-nav-footer .mobile-nav-subitems { padding: 6px 4px 0; border-bottom: 0; }
-.mobile-nav-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 16px; border-radius: 999px; color: #fff; background: var(--ink); font-size: 15px; font-weight: 700; }
+.mobile-nav-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto; padding: 16px; border-radius: 999px; color: #fff; background: var(--ink); font-size: 15px; font-weight: 700; }
 
 /* Hero */
 .hero { position: relative; min-height: 760px; background: linear-gradient(180deg, #f8fbf9 0%, #eef7f2 100%); }
@@ -439,6 +423,13 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .footer-nav-group a:hover { color: var(--green-dark); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0 32px; border-top: 1px solid var(--line); }
 .footer-bottom small { color: #53665b; font-size: 11px; }
+/* Mobile-only language links — desktop already has the header's globe
+   dropdown, so this stays hidden until the mobile-nav breakpoint. */
+.footer-lang { display: none; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
+.footer-lang a { color: #8b978f; transition: color .15s ease; }
+.footer-lang a:hover { color: var(--ink); }
+.footer-lang a.is-active { color: var(--green-dark); }
+.footer-lang-divider { color: var(--line); }
 .back-to-top { display: inline-flex; align-items: center; gap: 9px; color: #445d51; font-size: 12px; font-weight: 700; }
 .back-to-top span { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--line); border-radius: 50%; background: #fff; transition: .2s ease; }
 .back-to-top:hover span { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
@@ -613,6 +604,7 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
   .header-actions .lang-nav { display: none; }
   .header-inner { grid-template-columns: 1fr auto; gap: 14px; }
   .mobile-nav { display: block; }
+  .footer-lang { display: flex; }
   .hero-inner { grid-template-columns: 1fr; min-height: auto; padding-block: 76px 92px; }
   .hero-copy { max-width: 720px; }
   .product-stage { width: min(760px, 100%); margin-inline: auto; }

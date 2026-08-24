@@ -1,4 +1,5 @@
 import { getNavData } from "./header";
+import { FooterLanguageSwitcher } from "./language-switcher";
 import { localeHref, type Locale } from "./i18n";
 
 const copy = {
@@ -78,6 +79,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
         <div className="footer-bottom">
           <small>© {new Date().getFullYear()} Data Machi. {t.rights}</small>
+          <FooterLanguageSwitcher locale={locale} />
           <a className="back-to-top" href="#top">
             {t.backToTop} <span aria-hidden="true">↑</span>
           </a>
