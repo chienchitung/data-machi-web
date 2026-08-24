@@ -47,18 +47,31 @@ export function extractHeadings(content: string): BlogHeading[] {
   return headings;
 }
 
+// Chinese has no spaces between words, so reading speed is measured in
+// characters/minute (~300-500 is the commonly cited range for adult
+// silent reading). English is measured in words/minute instead (~200 is
+// a conservative, commonly used default — Medium uses 265) — counting
+// raw characters after stripping spaces would count every letter of
+// every word as a "reading unit," wildly inflating the estimate.
 const CHARS_PER_MINUTE = 400;
+const WORDS_PER_MINUTE = 200;
 
-export function estimateReadingMinutes(content: string): number {
+export function estimateReadingMinutes(content: string, locale: Locale): number {
   const plain = content
     .replace(/```[\s\S]*?```/g, "")
     .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
     .replace(/[#>*_`~|]/g, "")
     .replace(/^-{3,}$/gm, "")
-    .replace(/\s+/g, "");
+    .trim();
 
-  return Math.max(1, Math.round(plain.length / CHARS_PER_MINUTE));
+  if (locale === "zh") {
+    const charCount = plain.replace(/\s+/g, "").length;
+    return Math.max(1, Math.round(charCount / CHARS_PER_MINUTE));
+  }
+
+  const wordCount = plain.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
 }
 
 export function getAllPosts(locale: Locale): BlogPost[] {

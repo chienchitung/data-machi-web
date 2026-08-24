@@ -66,7 +66,7 @@ export default async function BlogPost({
   if (!post) notFound();
 
   const headings = extractHeadings(post.content);
-  const readingMinutes = estimateReadingMinutes(post.content);
+  const readingMinutes = estimateReadingMinutes(post.content, locale);
   const postUrl = `https://www.data-machi.com/${locale}/blog/${post.slug}`;
 
   const mdxComponents = {
