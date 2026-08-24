@@ -159,17 +159,6 @@ button, input { font: inherit; }
 .mobile-nav-toggle.is-open .menu-bar::before { top: 0; transform: rotate(45deg); }
 .mobile-nav-toggle.is-open .menu-bar::after { top: 0; transform: rotate(-45deg); }
 
-.mobile-nav-backdrop {
-  position: fixed;
-  inset: 70px 0 0 0;
-  z-index: 998;
-  background: rgba(11, 31, 23, .32);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .25s ease, visibility .25s;
-}
-.mobile-nav-backdrop.is-open { opacity: 1; visibility: visible; }
-
 .mobile-nav-panel {
   position: fixed;
   top: 70px;
@@ -178,19 +167,21 @@ button, input { font: inherit; }
   z-index: 999;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 70px);
+  /* .site-header has backdrop-filter, which makes it the containing
+     block for fixed-position descendants — so `bottom: 0` would
+     resolve against the header's own box, not the viewport. Use an
+     explicit viewport-relative height instead (dvh where supported,
+     for mobile browsers' dynamic address bar). */
+  height: calc(100vh - 70px);
+  height: calc(100dvh - 70px);
   padding: 10px 20px 24px;
   overflow-y: auto;
   background: #fff;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0 24px 44px rgba(11, 31, 23, .14);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  transition: opacity .2s ease, visibility .2s;
 }
-.mobile-nav-panel.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+.mobile-nav-panel.is-open { opacity: 1; visibility: visible; }
 .mobile-nav-links { display: flex; flex-direction: column; }
 .mobile-nav-link, .mobile-nav-group-trigger { padding: 17px 4px; border-bottom: 1px solid var(--line); color: #384942; font-size: 16px; font-weight: 700; letter-spacing: -.01em; text-align: left; }
 .mobile-nav-group-trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; background: none; border-top: 0; border-right: 0; border-left: 0; cursor: pointer; }
@@ -201,7 +192,21 @@ button, input { font: inherit; }
 .mobile-nav-subitems { display: flex; flex-direction: column; padding: 4px 0 12px 14px; border-bottom: 1px solid var(--line); }
 .mobile-nav-subitems a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 4px; color: #57685f; font-size: 14px; font-weight: 600; }
 .mobile-nav-subitems a.is-active { color: var(--green-dark); }
-.mobile-nav-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; padding: 16px; border-radius: 999px; color: #fff; background: var(--ink); font-size: 15px; font-weight: 700; }
+
+/* Footer zone: pinned to the bottom of the full-bleed panel, visually
+   separated from the primary nav links so language doesn't read as
+   just another nav item. */
+.mobile-nav-footer { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
+.mobile-nav-footer .mobile-nav-group-trigger {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: #53635b;
+  font-size: 14px;
+  font-weight: 600;
+}
+.mobile-nav-footer .mobile-nav-subitems { padding: 6px 4px 0; border-bottom: 0; }
+.mobile-nav-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 16px; border-radius: 999px; color: #fff; background: var(--ink); font-size: 15px; font-weight: 700; }
 
 /* Hero */
 .hero { position: relative; min-height: 760px; background: linear-gradient(180deg, #f8fbf9 0%, #eef7f2 100%); }

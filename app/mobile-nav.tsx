@@ -52,8 +52,6 @@ export function MobileNav({
         <span className="menu-bar" />
       </button>
 
-      <div className={`mobile-nav-backdrop${open ? " is-open" : ""}`} onClick={close} aria-hidden="true" />
-
       <nav className={`mobile-nav-panel${open ? " is-open" : ""}`} aria-label={t.nav} inert={!open}>
         <div className="mobile-nav-links">
           {sections.map((section) =>
@@ -91,7 +89,9 @@ export function MobileNav({
               </a>
             )
           )}
+        </div>
 
+        <div className="mobile-nav-footer">
           <MobileLanguageGroup
             locale={locale}
             label={t.language}
@@ -99,11 +99,11 @@ export function MobileNav({
             onToggle={() => setExpanded((value) => (value === LANG_KEY ? null : LANG_KEY))}
             onNavigate={close}
           />
-        </div>
 
-        <a className="mobile-nav-cta" href={cta.href} onClick={close}>
-          {cta.label}
-        </a>
+          <a className="mobile-nav-cta" href={cta.href} onClick={close}>
+            {cta.label}
+          </a>
+        </div>
       </nav>
     </div>
   );
