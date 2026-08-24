@@ -467,6 +467,11 @@ button, input { font: inherit; }
 .blog-list-meta .learning-tag { align-self: center; margin-bottom: 0; }
 .blog-list-read { display: inline-flex; margin-top: 16px; color: #507060; font-size: 13px; font-weight: 700; }
 
+.blog-tabs { display: flex; align-items: center; gap: 4px; margin: 0 0 36px; padding-bottom: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.blog-tab { flex-shrink: 0; padding: 10px 14px; border: none; border-bottom: 2px solid transparent; margin-bottom: -5px; border-radius: 8px 8px 0 0; background: none; color: var(--muted); font-size: 14px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: .15s ease; }
+.blog-tab:hover { color: var(--ink); background: #f4f8f5; }
+.blog-tab.is-active { color: var(--ink); border-bottom-color: var(--green); font-weight: 700; }
+
 .blog-featured { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: 0; margin: 0 0 40px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; transition: .2s ease; }
 .blog-featured:hover { border-color: #bcd5c6; box-shadow: 0 20px 44px rgba(20, 62, 41, .1); transform: translateY(-2px); }
 .blog-featured-visual { position: relative; display: grid; place-items: center; min-height: 260px; background: linear-gradient(135deg, #eafbf0 0%, #f4f8f5 55%, #eafbf0 100%); }

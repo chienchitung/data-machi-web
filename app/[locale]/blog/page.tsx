@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SiteHeader } from "../../header";
 import { SiteFooter } from "../../footer";
 import { getAllPosts } from "../../../lib/blog";
-import { BlogCoverArt } from "./cover-art";
+import { BlogList } from "./blog-list";
 import { SubscribeForm } from "../../subscribe-form";
-import { localeHref, asLocale } from "../../i18n";
+import { asLocale } from "../../i18n";
 
 const copy = {
   zh: {
@@ -12,14 +12,12 @@ const copy = {
     description: "Data Machi 的產業觀察、實作筆記與案例拆解。",
     kicker: "BLOG",
     h1: "部落格",
-    readThis: "閱讀這一篇 →",
   },
   en: {
     title: "Blog",
     description: "Data Machi's industry notes, field notes, and case breakdowns.",
     kicker: "BLOG",
     h1: "Blog",
-    readThis: "Read this article →",
   },
 } as const;
 
@@ -34,7 +32,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
   const { locale: rawLocale } = await params;
   const locale = asLocale(rawLocale);
   const t = copy[locale];
-  const [featured, ...rest] = getAllPosts(locale);
+  const posts = getAllPosts(locale);
 
   return (
     <main id="top">
@@ -46,38 +44,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
           <h1>{t.h1}</h1>
         </div>
 
-        {featured && (
-          <a className="blog-featured" href={localeHref(locale, `/blog/${featured.slug}`)}>
-            <div className="blog-featured-visual" aria-hidden="true">
-              <BlogCoverArt />
-            </div>
-            <div className="blog-featured-content">
-              <div className="blog-list-meta">
-                <span className="learning-tag">{featured.tag}</span>
-                <time dateTime={featured.date}>{featured.date}</time>
-              </div>
-              <h2>{featured.title}</h2>
-              <p>{featured.summary}</p>
-              <span className="blog-list-read">{t.readThis}</span>
-            </div>
-          </a>
-        )}
-
-        {rest.length > 0 && (
-          <div className="blog-grid">
-            {rest.map((post) => (
-              <a className="blog-list-item" href={localeHref(locale, `/blog/${post.slug}`)} key={post.slug}>
-                <div className="blog-list-meta">
-                  <span className="learning-tag">{post.tag}</span>
-                  <time dateTime={post.date}>{post.date}</time>
-                </div>
-                <h2>{post.title}</h2>
-                <p>{post.summary}</p>
-                <span className="blog-list-read">{t.readThis}</span>
-              </a>
-            ))}
-          </div>
-        )}
+        <BlogList posts={posts} locale={locale} />
 
         <SubscribeForm locale={locale} />
       </section>
