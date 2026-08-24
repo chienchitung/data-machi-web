@@ -11,13 +11,13 @@ const copy = {
     title: "Blog",
     description: "Data Machi 的產業觀察、實作筆記與案例拆解。",
     kicker: "BLOG",
-    h1: "部落格",
+    h1: "所有文章",
   },
   en: {
     title: "Blog",
     description: "Data Machi's industry notes, field notes, and case breakdowns.",
     kicker: "BLOG",
-    h1: "Blog",
+    h1: "All Articles",
   },
 } as const;
 
