@@ -369,7 +369,7 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .capability-level { color: #8aa095; font-size: 8px; font-weight: 700; }
 
 /* Use cases */
-.use-case-section { padding: 110px 0 118px; }
+.use-case-section { padding: 110px 0 118px; background: var(--surface); }
 .compact-intro { grid-template-columns: 1fr .58fr; }
 .use-case-list { display: flex; flex-direction: column; margin-top: 46px; border-top: 1px solid var(--line); }
 .use-case-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 32px; align-items: center; padding: 34px 12px; border-bottom: 1px solid var(--line); transition: background .2s ease; }
@@ -403,7 +403,7 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .blog-preview-link { display: inline-flex; margin-top: 20px; }
 
 /* FAQ */
-.faq-section { padding: 0 0 118px; }
+.faq-section { padding: 40px 0 118px; background: var(--surface); }
 .faq-list { display: flex; flex-direction: column; margin-top: 46px; border-top: 1px solid var(--line); }
 .faq-item { border-bottom: 1px solid var(--line); }
 .faq-question { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 26px 4px; border: 0; background: none; color: var(--ink); font-size: 16px; font-weight: 700; text-align: left; letter-spacing: -.01em; cursor: pointer; }
