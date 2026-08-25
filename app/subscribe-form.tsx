@@ -42,3 +42,19 @@ export function SubscribeForm({ locale }: { locale: Locale }) {
     </div>
   );
 }
+
+/**
+ * Compact email-only variant for the site footer — just the input and
+ * submit button, no icon/title/description.
+ */
+export function FooterSubscribeForm({ locale }: { locale: Locale }) {
+  if (!KIT_FORM_ACTION) return null;
+  const t = copy[locale];
+
+  return (
+    <form action={KIT_FORM_ACTION} method="post" target="_blank" className="footer-subscribe-form">
+      <input type="email" name="email_address" required placeholder={t.placeholder} aria-label="Email" />
+      <button type="submit">{t.submit}</button>
+    </form>
+  );
+}

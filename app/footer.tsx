@@ -1,5 +1,6 @@
 import { getNavData } from "./header";
 import { FooterLanguageSwitcher } from "./language-switcher";
+import { FooterSubscribeForm } from "./subscribe-form";
 import { localeHref, type Locale } from "./i18n";
 
 const copy = {
@@ -53,6 +54,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               <span className="brand-copy"><strong>Data Machi</strong></span>
             </a>
             <p>{t.tagline}</p>
+            <FooterSubscribeForm locale={locale} />
           </div>
 
           <nav className="footer-nav" aria-label={t.footerNav}>

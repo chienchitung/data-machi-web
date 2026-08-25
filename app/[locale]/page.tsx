@@ -3,7 +3,6 @@ import { SiteFooter } from "../footer";
 import { FAQSection } from "../faq";
 import { getAllPosts } from "../../lib/blog";
 import { BlogCoverArt } from "./blog/cover-art";
-import { SubscribeForm } from "../subscribe-form";
 import { localeHref, asLocale } from "../i18n";
 
 const copy = {
@@ -516,10 +515,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       )}
 
       <FAQSection locale={locale} />
-
-      <div className="section-shell">
-        <SubscribeForm locale={locale} />
-      </div>
 
       <section className="final-section section-shell">
         <div className="final-card">
