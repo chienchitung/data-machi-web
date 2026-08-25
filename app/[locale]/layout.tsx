@@ -43,9 +43,12 @@ export async function generateMetadata({
     title: t.title,
     description: t.description,
     icons: {
-      icon: "/favicon.svg",
-      shortcut: "/favicon.svg",
-      apple: "/favicon.svg",
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
     },
     alternates: {
       languages: {
