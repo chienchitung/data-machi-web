@@ -8,12 +8,14 @@ const copy = {
     description: "我們發新文章時通知你，分享企業 AI 導入的實務觀察。",
     placeholder: "你的 email",
     submit: "訂閱",
+    footerSubmit: "訂閱電子報",
   },
   en: {
     title: "Subscribe to Data Machi",
     description: "We'll let you know when we publish new articles on enterprise AI adoption.",
     placeholder: "Your email",
     submit: "Subscribe",
+    footerSubmit: "Subscribe to Newsletter",
   },
 } as const;
 
@@ -54,7 +56,7 @@ export function FooterSubscribeForm({ locale }: { locale: Locale }) {
   return (
     <form action={KIT_FORM_ACTION} method="post" target="_blank" className="footer-subscribe-form">
       <input type="email" name="email_address" required placeholder={t.placeholder} aria-label="Email" />
-      <button type="submit">{t.submit}</button>
+      <button type="submit">{t.footerSubmit}</button>
     </form>
   );
 }
