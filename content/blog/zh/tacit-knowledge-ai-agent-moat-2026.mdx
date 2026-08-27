@@ -1,0 +1,64 @@
+---
+title: "內隱知識才是企業的下一個護城河：AI Agent 時代，你要留住的不是資料，是判斷力"
+slug: "tacit-knowledge-ai-agent-moat-2026"
+date: "2026-08-27"
+summary: "當資料唾手可得、模型人人可用，企業真正的競爭優勢正在轉移到那些說不出來的判斷力。這篇文章從 Berkeley CMR 最新研究出發，說明為什麼「寫下來」不等於「AI 看得懂」，以及 RAG 到 Agentic Workflow 要解決的正是這個缺口。"
+tag: "產業觀察"
+---
+
+Data Machi 第一篇文章提到，多數企業 AI Agent 專案卡關，問題往往出在「認知落差」：團隊搞不清楚哪些決策該交給 AI 做。最近 Berkeley 的 California Management Review 刊登一篇文章，正好從另一個角度講出了同一件事。文章的論點很直接：資料愈來愈多、模型也愈來愈普及之後，企業真正的優勢不再是資料或模型本身，而是那些資深員工累積多年、卻講不出具體規則的判斷力，也就是內隱知識（tacit knowledge）。[^1]
+
+## 為什麼內隱知識現在變成護城河
+
+管理學界把知識分成兩種類型，這個講法已經流傳幾十年。外顯知識可以寫成文件、SOP、規則，複製傳遞很容易；內隱知識剛好相反，是那種「你知道怎麼做，但講不清楚為什麼」的能力，過去的理論認為，這種知識只能靠師徒制、長時間共事慢慢累積傳遞。[^2]
+
+這件事現在變得很急迫。Deloitte 跟 eGain 今年稍早發布的聯合研究指出，未來四年內，美國會有超過 3000 萬人邁入 65 歲，這是企業史上規模最大的一波組織知識轉移，預估會造成 6.9 兆到 9.6 兆美元的產出損失。
+
+研究還發現，92% 的受訪企業坦承根本沒有系統性的方法留住即將退休員工的知識。現在員工平均在職年資已經降到 3.9 年，十年前還有 4.6 年，跟嬰兒潮世代平均超過 8 年的年資比起來差很多。這代表像「這套系統當初為什麼要這樣設計」「這個客戶關係背後的來龍去脈」這類深層的組織記憶，很難自然傳給下一代員工。[^3]
+
+Berkeley CMR 這篇文章提出五個具體行動：Map，找出內隱知識藏在哪裡；Codify，把它寫下來，但不能把細膩的判斷壓扁成死板規則；Embed，嵌入 AI Agent 能推理的語意結構；Collaborate，讓人跟 AI 真正協作；Lead，領導層要主動決定 AI 在組織裡怎麼被使用。[^1]
+
+## 「寫下來」不等於「AI 看得懂」：問題出在 Codify 跟 Embed 之間
+
+多數企業對「知識管理」的想像，還停留在把老師傅的經驗寫成一份 SOP 或 Wiki 頁面。但這正是 CMR 文章提醒的地方：內隱知識一旦被壓扁成規則，往往只留下「正常情況下該怎麼做」，真正值錢的部分反而不見了，像是什麼時候這條規則不適用、遇到例外該怎麼判斷、這個規則有沒有被更新的政策取代掉。
+
+這也是為什麼單靠 RAG（檢索增強生成）補知識庫，沒辦法真正解決問題。做企業 AI 的團隊就指出過，RAG 檢索到的其實是「文件」，不是「決策脈絡」。它能把相關段落找出來，但沒辦法告訴 Agent 這份文件是不是還適用、有沒有被取代、跟另一條規則衝突的時候該聽誰的。[^4]
+
+2026 年剛好有兩篇論文在處理這個缺口，方向跟 Data Machi 的做法很接近。
+
+一篇來自日本 JAIST 的研究，把管理學經典的 SECI 知識轉換模型，也就是社會化、外部化、組合化、內部化這四個階段，重新設計成「GenAI SECI」。重點是同時處理外顯跟內隱知識，而不是像過去的知識管理系統一樣，只顧得上外顯知識那一塊。[^5]
+
+另一篇來自 Yahoo 研究團隊的論文講得更直接。他們發現企業軟體團隊裡累積的架構決策、部署流程、合規政策、事故處理經驗，全部卡在「給人看」的格式裡，Agent 根本拿來沒辦法用。問題從來不是模型能力不夠，而是知識被存放的方式不對。他們提出的做法，是把這些知識拆解、壓縮，重新包裝成 Agent 可以直接執行的單元，而不是丟一堆段落讓模型自己猜該怎麼用。[^6]
+
+## Data Machi 怎麼看：這正是 RAG 到 Agentic Workflow 要解決的事
+
+CMR 文章停在策略層，講的是「你該做這五件事」，但沒有回答「具體怎麼做」。這剛好是 Data Machi 30 天系列想補的位置：
+
+| CMR 的五個行動 | 對應的技術問題 | Data Machi 的做法 |
+|---|---|---|
+| Map + Codify | 知識在哪裡、怎麼寫下來才不失真 | RAG：把分散在文件、對話、系統裡的知識變得可檢索 |
+| Embed | 怎麼讓 AI 能「用」這些知識做判斷，而不只是查到 | Tool Use / Agent：把決策邏輯拆清楚，程式負責計算與規則，模型負責理解意圖 |
+| Collaborate | 人跟 AI 怎麼分工、誰能介入 | Agentic Workflow：設計人機協作的流程與控制點 |
+| Lead | 誰該為 AI 怎麼被使用負責 | 這也是為什麼我們把這套方法論設計給決策者跟團隊一起學，而不是丟給工程師自己摸索 |
+
+「把內隱知識變成 AI 看得懂的東西」聽起來像是個管理學命題，但真正落地之後，其實是一連串具體的工程選擇：哪些知識該用檢索的方式補進 Context，哪些判斷該寫成規則讓程式決定，哪些又只能靠模型去理解意圖，再交給人確認。這正是我們 30 天系列想帶讀者一步步走過的路徑。
+
+## 我們現在能提供什麼
+
+完全免費、公開閱讀，不需要註冊或付費：
+
+- **[30 天系列](https://www.data-machi.com/docs)**：從 RAG 到 Agentic Workflow 的完整學習路徑與實作細節
+- **[產品理念與能力模型](/zh#product)**：我們怎麼看待「企業 AI 產品」這件事
+
+如果你的團隊正在思考怎麼把內部的經驗判斷變成 AI 能用的資產，歡迎透過 [support@data-machi.com](mailto:support@data-machi.com) 跟我們聊聊。
+
+---
+
+**資料來源**：以下數據與研究內容均引用自各發布單位公開資料，撰寫時點為準；不同研究方法可能導致數字略有差異，實際情況請以各來源最新公開資訊為主。
+
+[^1]: [Teresa Tung, Philippe Roussiere — Tacit Knowledge Is Your Next Competitive Moat](https://cmr.berkeley.edu/2026/03/tacit-knowledge-is-your-next-competitive-moat/)，California Management Review，2026
+[^2]: Nonaka & Takeuchi SECI 知識轉換模型，參見 [Managing Knowledge in Organizations: A Nonaka's SECI Model Operationalization](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02730/full)，Frontiers in Psychology
+[^3]: [Evan Siegel (eGain), Eyal Cahana (Deloitte) — The $9 Trillion Knowledge Exodus: How Organizations Can Turn Baby Boomer Retirements Into Competitive Advantage](https://www.deloitte.com/us/en/insights/topics/talent/knowledge-management-plan.html)，Deloitte Insights，2026
+[^4]: [Accrete.ai — Why RAG Isn't Enough for Enterprise AI](https://www.accrete.ai/blog/why-rag-isnt-enough)
+[^5]: [Naoshi Uchihira — Tacit Knowledge Management with Generative AI: Proposal of the GenAI SECI Model](https://arxiv.org/pdf/2603.21866)，2026
+[^6]: [Gal Bakal — Knowledge Activation: AI Skills as the Institutional Knowledge Primitive for Agentic Software Development](https://arxiv.org/pdf/2603.14805)，2026

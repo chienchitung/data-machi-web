@@ -1,0 +1,64 @@
+---
+title: "Tacit Knowledge Is Your Next Moat: What AI Agents Need You to Keep Isn't Data, It's Judgment"
+slug: "tacit-knowledge-ai-agent-moat-2026"
+date: "2026-08-27"
+summary: "When data is abundant and models are commoditized, real competitive advantage is shifting to the judgment your best people can't put into words. Drawing on new Berkeley research, this piece explains why writing knowledge down isn't the same as making it AI-readable — and why that gap is exactly what RAG-to-Agentic-Workflow is built to close."
+tag: "Industry Notes"
+---
+
+Our first post talked about why most enterprise AI Agent projects stall: not because the model isn't smart enough, but because of a "judgment gap" — teams aren't sure which decisions should go to AI. A recent piece in Berkeley's California Management Review makes almost the same point from a different angle. Its argument is direct: once data is abundant and models are commoditized, a company's real edge stops being its data or its models. It becomes the judgment senior people build up over years but can never quite explain — what's usually called tacit knowledge.[^1]
+
+## Why tacit knowledge is becoming the moat
+
+Management researchers have split knowledge into two types for decades. Explicit knowledge can be written down as documents, SOPs, rules — easy to copy and pass along. Tacit knowledge is the opposite: the "you know how, you just can't say why" kind of skill that, in the classic theory, only spreads through apprenticeship and years of working side by side.[^2]
+
+That handoff problem just got urgent. A joint study from Deloitte and eGain, published earlier this year, found that more than 30 million Americans will turn 65 within the next four years — the largest single transfer of institutional knowledge in business history — with an estimated $6.9 to $9.6 trillion in lost output.
+
+The same study found that 92% of surveyed organizations admit they have no systematic way to capture knowledge from soon-to-retire employees. Average job tenure has already dropped to 3.9 years, down from 4.6 a decade ago, well below the eight-plus years Baby Boomers typically stayed. That means deep institutional memory — why a system was built a certain way, the history behind a client relationship — has no natural path to the next generation of employees.[^3]
+
+The CMR piece lays out five concrete moves: Map where the tacit knowledge actually lives; Codify it without flattening the nuance out of it; Embed it into semantic structures an AI Agent can reason with; Collaborate, so people and AI actually work together; and Lead, meaning leadership has to actively decide how AI gets used across the org.[^1]
+
+## Writing it down isn't the same as making it AI-readable
+
+Most companies' idea of "knowledge management" still stops at turning a veteran's experience into an SOP or a wiki page. That's exactly what the CMR piece warns against: once tacit knowledge gets flattened into a rule, what usually survives is "here's what to do in the normal case," and the actually valuable part disappears — when the rule doesn't apply, how to handle the edge case, whether it's been superseded by a newer policy.
+
+That's also why bolting RAG onto a knowledge base doesn't solve the problem by itself. Teams building enterprise AI have pointed out that what RAG retrieves is a document, not decision context. It can surface the relevant passage, but it can't tell an Agent whether that document still applies, whether it's been superseded, or which rule wins when two of them conflict.[^4]
+
+Two papers from 2026 happen to be working on exactly this gap, in a direction that lines up closely with how Data Machi approaches things.
+
+One, from Japan's JAIST, takes the classic SECI knowledge-conversion model from management theory — socialization, externalization, combination, internalization — and redesigns it as "GenAI SECI." The point is to handle both explicit and tacit knowledge together, instead of only covering the explicit half the way older knowledge-management systems did.[^5]
+
+The other, from a Yahoo research team, is more blunt. It finds that the architectural decisions, deployment procedures, compliance policies, and incident playbooks enterprise software teams build up over time are all stuck in formats meant for humans to read, which means an Agent can't actually use them. The bottleneck was never model capability; it's how the knowledge is structured. Their proposed fix is to break that knowledge down, compress it, and repackage it into units an Agent can execute directly, instead of dumping a pile of passages and hoping the model figures out how to use them.[^6]
+
+## Where Data Machi fits: this is exactly what RAG-to-Agentic-Workflow is for
+
+The CMR piece stays at the strategy level — here are the five things you should do — without answering how to actually do them. That's the gap Data Machi's 30-day series is trying to fill:
+
+| CMR's five moves | The technical problem underneath | How Data Machi approaches it |
+|---|---|---|
+| Map + Codify | Where the knowledge lives, and how to write it down without losing it | RAG: making knowledge scattered across documents, conversations, and systems retrievable |
+| Embed | Getting AI to actually use that knowledge to make a call, not just look it up | Tool Use / Agent: separating the decision logic — code owns computation and rules, the model owns understanding intent |
+| Collaborate | How people and AI divide the work, and who can step in | Agentic Workflow: designing the human-AI process and its control points |
+| Lead | Who's accountable for how AI gets used | Why we built this methodology for decision-makers and teams to learn together, not something to hand off to engineers alone |
+
+"Turning tacit knowledge into something AI can use" sounds like a management theory problem. In practice, it's a string of concrete engineering decisions: which knowledge should get pulled into context through retrieval, which judgment calls should become rules a program enforces, and which ones can only be handled by a model understanding intent and then handing off to a person to confirm. That's the path our 30-day series is built to walk readers through.
+
+## What we offer right now
+
+Completely free and openly readable, no registration or payment required:
+
+- **[The 30-day series](https://www.data-machi.com/docs)**: a full learning path and implementation details from RAG to Agentic Workflow
+- **[Product thinking and the maturity model](/en#product)**: how we think about "enterprise AI product"
+
+If your team is thinking about how to turn internal judgment into something AI can actually use, feel free to reach out at [support@data-machi.com](mailto:support@data-machi.com).
+
+---
+
+**Sources**: figures and research findings below are drawn from each publisher's own public materials at the time of writing; methodologies vary and exact numbers may shift as sources update their reports.
+
+[^1]: [Teresa Tung, Philippe Roussiere — Tacit Knowledge Is Your Next Competitive Moat](https://cmr.berkeley.edu/2026/03/tacit-knowledge-is-your-next-competitive-moat/), California Management Review, 2026
+[^2]: Nonaka & Takeuchi's SECI knowledge-conversion model; see [Managing Knowledge in Organizations: A Nonaka's SECI Model Operationalization](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02730/full), Frontiers in Psychology
+[^3]: [Evan Siegel (eGain), Eyal Cahana (Deloitte) — The $9 Trillion Knowledge Exodus: How Organizations Can Turn Baby Boomer Retirements Into Competitive Advantage](https://www.deloitte.com/us/en/insights/topics/talent/knowledge-management-plan.html), Deloitte Insights, 2026
+[^4]: [Accrete.ai — Why RAG Isn't Enough for Enterprise AI](https://www.accrete.ai/blog/why-rag-isnt-enough)
+[^5]: [Naoshi Uchihira — Tacit Knowledge Management with Generative AI: Proposal of the GenAI SECI Model](https://arxiv.org/pdf/2603.21866), 2026
+[^6]: [Gal Bakal — Knowledge Activation: AI Skills as the Institutional Knowledge Primitive for Agentic Software Development](https://arxiv.org/pdf/2603.14805), 2026
