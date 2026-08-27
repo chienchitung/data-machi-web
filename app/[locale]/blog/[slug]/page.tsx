@@ -70,6 +70,16 @@ export default async function BlogPost({
   const postUrl = `https://www.data-machi.com/${locale}/blog/${post.slug}`;
 
   const mdxComponents = {
+    a: ({ href, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      const isExternal = !!href && /^https?:\/\//.test(href) && !href.includes("data-machi.com");
+      return (
+        <a
+          href={href}
+          {...props}
+          {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        />
+      );
+    },
     table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
       <div className="table-scroll">
         <table {...props} />
