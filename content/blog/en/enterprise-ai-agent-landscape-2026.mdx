@@ -10,11 +10,11 @@ The enterprise AI Agent market is growing fast, but most projects don't fail bec
 
 ## A fast-growing market with an equally high failure rate
 
-The enterprise AI Agent market reached roughly $10.9B in 2026, growing at a 49.6% CAGR. Gartner also projects that by the end of 2026, 40% of enterprise applications will embed task-oriented AI Agents.
+The enterprise AI Agent market reached roughly $10.9B in 2026, growing at a 49.6% CAGR.[^1] Gartner also projects that by the end of 2026, 40% of enterprise applications will embed task-oriented AI Agents.[^2]
 
-But growth has a flip side: an equally striking failure rate. Industry research points to the root cause of production Agent failures not being "the model isn't smart enough," but **gaps in engineering and governance capability** — unclear goals, runaway costs, and value that's hard to quantify. Gartner has gone so far as to warn that over 40% of AI Agent projects will be cancelled by the end of 2027.
+But growth has a flip side: an equally striking failure rate. Industry research points to the root cause of production Agent failures not being "the model isn't smart enough," but **gaps in engineering and governance capability** — unclear goals, runaway costs, and value that's hard to quantify. Gartner has gone so far as to warn that over 40% of AI Agent projects will be cancelled by the end of 2027.[^3]
 
-Taiwanese enterprises face similar pain points. The three most common are **data silos** (data scattered across systems, so the AI can't see the full context), **token cost** (a multi-step Agent can stack up a large number of calls in a single conversation, making cost hard to predict), and a **judgment gap** (teams aren't clear on what an Agent can and can't do, or how to assess the risk).
+Taiwanese enterprises face similar pain points. The three most common are **data silos** (data scattered across systems, so the AI can't see the full context), **token cost** (a multi-step Agent can stack up a large number of calls in a single conversation, making cost hard to predict), and a **judgment gap** (teams aren't clear on what an Agent can and can't do, or how to assess the risk).[^4]
 
 ## Why "looks like it works" and "actually ready for production" are different things
 
@@ -27,7 +27,7 @@ One often-overlooked number captures the problem well: if a single Agent step is
   caption="Method: success rate = 0.95 raised to the number of steps. Each step's reliability is assumed independent; real-world numbers vary by task and tooling — this is only meant to illustrate the scale of the compounding effect."
 />
 
-Another shift worth noting: the latest failure-case research shows "hallucination" is no longer the leading cause of Agent failure, accounting for less than 10% of cases. What's actually growing fast is **execution- and action-layer failure** — calling the wrong tool, state going out of sync, a workflow stalling at a step nobody picks up. In other words, swapping in a more accurate model alone won't solve most of this, because the problem was never really about the model's language ability — it's about system design: who's responsible for computation, who's responsible for judgment, and who can step in when something goes wrong.
+Another shift worth noting: the latest failure-case research shows "hallucination" is no longer the leading cause of Agent failure, accounting for less than 10% of cases. What's actually growing fast is **execution- and action-layer failure** — calling the wrong tool, state going out of sync, a workflow stalling at a step nobody picks up.[^5] In other words, swapping in a more accurate model alone won't solve most of this, because the problem was never really about the model's language ability — it's about system design: who's responsible for computation, who's responsible for judgment, and who can step in when something goes wrong.
 
 ## What the existing platforms actually solve
 
@@ -37,7 +37,7 @@ Laying out the options at home and abroad, they roughly fall into four lanes —
 |---|---|---|---|
 | Dev frameworks | LangChain / LangGraph | Engineering teams that want full code-level control | Maximum flexibility, but also the heaviest engineering investment |
 | Low-code / open source | Dify, n8n, Coze, Langflow | PMs, marketers, SMBs that want to prototype fast | Feature sets have become highly homogeneous since 2026 (RAG, multi-model, no-code are now table stakes) — hard to differentiate on the feature list alone |
-| Big-tech ecosystems | Microsoft Copilot Studio, Salesforce Agentforce | Enterprises already deeply committed to that ecosystem | Vendor lock-in; a 10-person team's first year on Agentforce runs roughly $140K, with 3 price increases within two years |
+| Big-tech ecosystems | Microsoft Copilot Studio, Salesforce Agentforce | Enterprises already deeply committed to that ecosystem | Vendor lock-in; a 10-person team's first year on Agentforce runs roughly $140K,[^6] and its pricing model has been overhauled three times in two years[^7] |
 | Taiwan-local brands | iKala Nexus, AltaBots.ai (Data-DI), 91APP AgentOne, MaiAgent, EgentHub | Enterprises that need Chinese-language context, on-prem deployment, or hands-on consulting | Mostly bundled with consulting services or a specific industry vertical — harder to self-serve and scale |
 
 The shared assumption across all four lanes is: **the team already knows what problem it's solving, and how to judge whether this Agent is trustworthy**. In reality, most teams stall before that assumption even holds — which is also why the failure rate hasn't dropped even as feature lists converge.
@@ -48,11 +48,11 @@ The local field looks crowded, but pull it apart and the entry points differ mor
 
 | Platform | Positioning | Deployment | Key differentiator |
 |---|---|---|---|
-| iKala Nexus | Untangling messy data, embedding AI into core workflows | Custom, on-prem / hybrid cloud | Google Cloud partnership, serves a large volume of enterprise clients across industries |
-| AltaBots.ai (Data-DI) | No-code Agent building | Not clearly specified | Consultants stay hands-on from decision-making through deployment |
-| 91APP AgentOne | Vertical Agents for retail / food service | Emphasizes a data-isolation sandbox | Deep integration with 91APP's existing retail ecosystem and security controls |
-| MaiAgent | Enterprise AI assistants, knowledge management, smart customer service | Public cloud / private cloud / on-prem | ISO 27001 and 27701 dual certification; claims 95% accuracy on its proprietary RAG |
-| EgentHub | Turning enterprise know-how into a continuously improvable AI SOP | SaaS / private cloud / on-prem | Built-in RBAC and full audit trails, connects to ERP/CRM/SSO via the MCP protocol |
+| iKala Nexus | Untangling messy data, embedding AI into core workflows | Custom, on-prem / hybrid cloud | Google Cloud partnership, serves a large volume of enterprise clients across industries[^8] |
+| AltaBots.ai (Data-DI) | No-code Agent building | Not clearly specified | Consultants stay hands-on from decision-making through deployment[^9] |
+| 91APP AgentOne | Vertical Agents for retail / food service | Emphasizes a data-isolation sandbox | Deep integration with 91APP's existing retail ecosystem and security controls[^10] |
+| MaiAgent | Enterprise AI assistants, knowledge management, smart customer service | Public cloud / private cloud / on-prem | ISO 27001 and 27701 dual certification; claims 95% accuracy on its proprietary RAG[^11] |
+| EgentHub | Turning enterprise know-how into a continuously improvable AI SOP | SaaS / private cloud / on-prem | Built-in RBAC and full audit trails, connects to ERP/CRM/SSO via the MCP protocol[^12] |
 
 What these five have in common is that **they're all moving toward "an AI asset the enterprise owns and can govern itself."** The difference is in what they solve for first — data security and governance (MaiAgent and EgentHub's certifications and audit trails), a specific industry scenario (91APP), or the talent gap during rollout (AltaBots' hands-on consulting). That reinforces the earlier point: **platforms are no longer competing on whether a feature exists, but on whether the enterprise trusts this Agent enough to put it into production.**
 
@@ -73,4 +73,17 @@ If your team is evaluating whether to adopt an AI Agent, or is already stuck at 
 
 ---
 
-**Sources**: the market size, failure rate, and reliability figures cited in this article are compiled from public Gartner forecasts, industry research from DevRev and TrueFoundry, and analysis of the Taiwan market from iKala, Data-DI, 91APP, MaiAgent, and EgentHub's own public materials. Exact figures may vary by methodology; each platform's feature and certification claims are drawn from its own public disclosures and are for reference only.
+**Sources**: figures and platform claims below are drawn from each publisher's own public materials at the time of writing; methodologies vary and exact numbers may shift as vendors update their reports.
+
+[^1]: [Grand View Research — AI Agents Market Size, Share & Trends Report, 2026–2033](https://www.grandviewresearch.com/industry-analysis/ai-agents-market-report)
+[^2]: [Gartner — Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026, Up from Less Than 5% in 2025](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)
+[^3]: [Gartner — Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)
+[^4]: [TechNews — 台灣企業導入AI代理面臨三大痛點？Infobip 點出數據孤島、Token 成本](https://technews.tw/2026/04/18/token-agentic-ai/)
+[^5]: [PR Newswire (ChatSee) — New Research Finds Enterprise AI Failures Are Shifting Beyond Hallucinations as Companies Move from Chatbots to Agents](https://www.prnewswire.com/news-releases/new-research-finds-enterprise-ai-failures-are-shifting-beyond-hallucinations-as-companies-move-from-chatbots-to-agents-302837907.html)
+[^6]: [eesel AI — Salesforce Agentforce setup cost: Complete 2026 pricing breakdown](https://www.eesel.ai/blog/salesforce-agentforce-setup-cost)
+[^7]: [Get Monetizely — The Doomed Evolution of Salesforce's Agentforce Pricing](https://www.getmonetizely.com/blogs/the-doomed-evolution-of-salesforces-agentforce-pricing)
+[^8]: [iKala — iKala Nexus: Enterprise AI Agents & Data Integration Solution](https://ikala.ai/ikala-nexus/)
+[^9]: [Data-DI — AltaBots.ai 企業級應用 AI Agent](https://www.data-di.com/)
+[^10]: [91APP Marketing Hub — AgentOne 的資安鐵壁堡壘：Agent 為什麼需要資料獨立與數據 Sandbox](https://marketing.91app.com/agentone-agent-security-data-isolation-sandbox/)
+[^11]: [MaiAgent — About Us](https://maiagent.ai/en/about)
+[^12]: [EgentHub — AI Agent 平台功能總覽：權限管理](https://egenthub.com/solution/EgentHub)
