@@ -1,9 +1,5 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./public/logo/dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./public/logo/light.svg">
-    <img src="./public/logo/light.svg" alt="Data Machi" width="300">
-  </picture>
+  <img src="./public/logo/data-machi-wordmark.png" alt="Data Machi" width="300">
 
   <p><strong>從 RAG 到 Agentic Workflow，打造企業 AI 知識工作流。</strong></p>
 
