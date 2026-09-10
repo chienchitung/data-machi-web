@@ -289,39 +289,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         <div className="value-grid">
           <article className="value-card">
-            <div className="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <ellipse cx="12" cy="6" rx="7" ry="3" />
-                <path d="M5 6v5c0 1.66 3.13 3 7 3s7-1.34 7-3V6" />
-                <path d="M5 11v5c0 1.66 3.13 3 7 3s7-1.34 7-3v-5" />
-              </svg>
-            </div>
-            <span className="card-number">01</span>
+            <span className="card-number" aria-hidden="true">01</span>
             <h3>{t.valueCards[0].title}</h3>
             <p>{t.valueCards[0].description}</p>
             <div className="mini-flow"><span>PDF</span><i>+</i><span>Sheets</span><i>+</i><span>Wiki</span></div>
           </article>
 
           <article className="value-card">
-            <div className="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 3 19 12 12 21 5 12Z" />
-              </svg>
-            </div>
-            <span className="card-number">02</span>
+            <span className="card-number" aria-hidden="true">02</span>
             <h3>{t.valueCards[1].title}</h3>
             <p>{t.valueCards[1].description}</p>
             <div className="logic-lines"><span>Intent</span><i>→</i><span>Rule</span><i>→</i><span>Verify</span></div>
           </article>
 
           <article className="value-card">
-            <div className="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M9 7h8v8" />
-              </svg>
-            </div>
-            <span className="card-number">03</span>
+            <span className="card-number" aria-hidden="true">03</span>
             <h3>{t.valueCards[2].title}</h3>
             <p>{t.valueCards[2].description}</p>
             <div className="action-status"><span><i /> Read</span><span><i /> Decide</span><span><i /> Act</span></div>

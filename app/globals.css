@@ -256,18 +256,16 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 /* Product values */
 .product-section { padding: 110px 0 118px; }
 .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
-.value-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 340px; padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: .25s ease; }
+.value-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 320px; padding: 30px 28px 28px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: .25s ease; }
 .value-card:hover { transform: translateY(-5px); border-color: #bcd5c6; box-shadow: 0 20px 45px rgba(20, 62, 41, .09); }
-.value-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 26px; border: 1px solid var(--line); border-radius: 14px; color: var(--green-dark); background: transparent; }
-.value-icon svg { width: 24px; height: 24px; }
-.card-number { position: absolute; top: 30px; right: 30px; color: #b1bdb6; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
-.value-card h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.03em; }
-.value-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
-.mini-flow, .logic-lines { display: flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(20, 62, 41, .08); }
-.mini-flow span, .logic-lines span { padding: 7px 9px; border: 1px solid #d4e4db; border-radius: 8px; color: #496158; background: rgba(255,255,255,.72); font-size: 8px; font-weight: 700; }
-.mini-flow i, .logic-lines i { color: #9aaba2; font-size: 9px; font-style: normal; }
-.action-status { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(20, 62, 41, .08); }
-.action-status span { display: inline-flex; align-items: center; gap: 6px; color: #597067; font-size: 9px; font-weight: 700; }
+.card-number { position: absolute; top: -6px; right: 20px; z-index: 0; color: var(--line); font-size: 84px; font-weight: 800; letter-spacing: -.06em; line-height: 1; font-variant-numeric: tabular-nums; user-select: none; }
+.value-card h3 { position: relative; z-index: 1; margin: 0 0 12px; font-size: 22px; letter-spacing: -.03em; }
+.value-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.mini-flow, .logic-lines { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; margin-top: auto; padding: 16px; border: 1px solid rgba(20, 62, 41, .08); border-radius: 12px; background: #f8fbf9; }
+.mini-flow span, .logic-lines span { padding: 8px 11px; border: 1px solid #d4e4db; border-radius: 8px; color: #2f463c; background: #fff; font-size: 11px; font-weight: 700; }
+.mini-flow i, .logic-lines i { color: var(--green-dark); font-size: 13px; font-style: normal; font-weight: 700; }
+.action-status { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding: 16px; border: 1px solid rgba(20, 62, 41, .08); border-radius: 12px; background: #f8fbf9; }
+.action-status span { display: inline-flex; align-items: center; gap: 7px; color: #2f463c; font-size: 11px; font-weight: 700; }
 .action-status i { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px var(--mint); }
 
 /* Framework */
