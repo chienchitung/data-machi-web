@@ -193,7 +193,7 @@ button, input { font: inherit; }
 .mobile-nav-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto; padding: 16px; border-radius: 999px; color: #fff; background: var(--ink); font-size: 15px; font-weight: 700; }
 
 /* Hero */
-.hero { position: relative; min-height: 760px; background: linear-gradient(180deg, #f8fbf9 0%, #eef7f2 100%); }
+.hero { position: relative; background: linear-gradient(180deg, #f8fbf9 0%, #eef7f2 100%); }
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -204,7 +204,7 @@ button, input { font: inherit; }
 }
 .hero-glow { position: absolute; border-radius: 999px; filter: blur(4px); pointer-events: none; }
 .hero-glow-one { top: -200px; right: 8%; width: 460px; height: 460px; background: radial-gradient(circle, rgba(74, 222, 128, .16), rgba(74, 222, 128, 0) 68%); }
-.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: .95fr 1.05fr; gap: 56px; align-items: center; min-height: 760px; padding-block: 86px 92px; }
+.hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 52px; padding-block: 86px 92px; }
 .hero-copy { position: relative; z-index: 2; }
 .release-pill {
   display: inline-flex;
@@ -246,8 +246,8 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .hero-stats span { color: #75837c; font-size: 10px; font-weight: 600; }
 
 /* Product preview */
-.product-stage { position: relative; min-width: 0; }
-.product-window { overflow: hidden; border: 1px solid rgba(96, 132, 112, .25); border-radius: 20px; background: #fff; box-shadow: 0 32px 80px rgba(14, 58, 37, .18), 0 4px 14px rgba(14, 58, 37, .08); transform: perspective(1400px) rotateY(-2deg) rotateX(1deg); transform-origin: center; }
+.product-stage { position: relative; width: 100%; min-width: 0; }
+.product-window { overflow: hidden; border: 1px solid rgba(96, 132, 112, .25); border-radius: 20px; background: #fff; box-shadow: 0 32px 80px rgba(14, 58, 37, .18), 0 4px 14px rgba(14, 58, 37, .08); }
 .window-bar { height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid #e5ece8; background: #fbfdfc; }
 .window-brand { display: flex; align-items: center; gap: 10px; }
 .window-brand > div { display: flex; flex-direction: column; }
@@ -555,7 +555,6 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
 .cookie-accept:hover { background: var(--green); }
 
 @media (max-width: 1100px) {
-  .hero-inner { grid-template-columns: 1fr 1fr; gap: 38px; }
   .floating-card-left { left: -18px; }
   .floating-card-right { right: -16px; }
   .framework-inner { grid-template-columns: .9fr 1fr; gap: 48px; }
@@ -572,10 +571,8 @@ html[lang="en"] .hero h1 { font-family: 'Newsreader', Georgia, 'Times New Roman'
   .header-inner { grid-template-columns: 1fr auto; gap: 14px; }
   .mobile-nav { display: block; }
   .footer-lang { display: flex; }
-  .hero-inner { grid-template-columns: 1fr; min-height: auto; padding-block: 76px 92px; }
+  .hero-inner { padding-block: 76px 92px; }
   .hero-copy { max-width: 720px; }
-  .product-stage { width: min(760px, 100%); margin-inline: auto; }
-  .product-window { transform: none; }
   .value-grid, .learning-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .framework-inner { grid-template-columns: 1fr; }
