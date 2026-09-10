@@ -21,31 +21,9 @@ const copy = {
       { value: "6", label: "個成熟階段" },
       { value: "3+", label: "企業資料來源" },
     ],
-    userQuery: "哪一個產品類別的銷售下滑最明顯，相關改善專案目前進度如何？",
-    workflowSteps: [
-      { label: "讀取銷售資料", status: "Completed" },
-      { label: "確認類別定義", status: "Completed" },
-      { label: "查詢專案進度", status: "Running" },
-    ],
-    answerReady: "Analysis ready",
-    answerText: "臥室收納類別的銷售年減幅度最大，主要受到平均購買件數下降影響。改善專案已完成需求確認，目前進入測試階段。",
-    insightRow: [
-      { label: "SALES CHANGE", value: "−12.8%" },
-      { label: "MAIN DRIVER", value: "Items / basket" },
-      { label: "PROJECT STATUS", value: "Testing" },
-    ],
-    citations: ["[1] Sales Data · Updated today", "[2] Knowledge Base", "[3] Project Board"],
-    promptBar: "Ask a follow-up question...",
+    productDemoAlt: "Data Machi 實際操作畫面：AI 助理引用 Google Sheets 與 Confluence 資料，回答本週業績摘要",
     floatingLeft: { title: "可追溯回答", subtitle: "Every fact has a source" },
     floatingRight: { title: "工作流執行中", subtitle: "3 tools connected" },
-    sourceLabel: "SOURCES",
-    sources: [
-      { name: "Sales Data", sub: "Google Sheets" },
-      { name: "Knowledge Base", sub: "Confluence" },
-      { name: "Project Board", sub: "Trello" },
-    ],
-    connectedSources: "connected sources",
-    newAnalysis: "New analysis",
 
     productKicker: "PRODUCT THINKING",
     productTitleLine1: "企業 AI 的價值，",
@@ -136,31 +114,9 @@ const copy = {
       { value: "6", label: "maturity stages" },
       { value: "3+", label: "enterprise data sources" },
     ],
-    userQuery: "Which product category has the sharpest sales decline, and how's the related improvement project going?",
-    workflowSteps: [
-      { label: "Read sales data", status: "Completed" },
-      { label: "Confirm category definitions", status: "Completed" },
-      { label: "Check project progress", status: "Running" },
-    ],
-    answerReady: "Analysis ready",
-    answerText: "The bedroom storage category has the steepest year-over-year decline, driven mainly by fewer items per basket. The improvement project has finished requirements confirmation and is now in testing.",
-    insightRow: [
-      { label: "SALES CHANGE", value: "−12.8%" },
-      { label: "MAIN DRIVER", value: "Items / basket" },
-      { label: "PROJECT STATUS", value: "Testing" },
-    ],
-    citations: ["[1] Sales Data · Updated today", "[2] Knowledge Base", "[3] Project Board"],
-    promptBar: "Ask a follow-up question...",
+    productDemoAlt: "Data Machi in action: the AI assistant cites Google Sheets and Confluence to answer a weekly performance question",
     floatingLeft: { title: "Traceable answers", subtitle: "Every fact has a source" },
     floatingRight: { title: "Workflow running", subtitle: "3 tools connected" },
-    sourceLabel: "SOURCES",
-    sources: [
-      { name: "Sales Data", sub: "Google Sheets" },
-      { name: "Knowledge Base", sub: "Confluence" },
-      { name: "Project Board", sub: "Trello" },
-    ],
-    connectedSources: "connected sources",
-    newAnalysis: "New analysis",
 
     productKicker: "PRODUCT THINKING",
     productTitleLine1: "Enterprise AI's value isn't",
@@ -303,46 +259,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               <div className="window-body">
-                <aside className="source-panel">
-                  <p>{t.sourceLabel}</p>
-                  <div className="source-item active"><span className="source-icon sheet-icon">S</span><div><strong>{t.sources[0].name}</strong><small>{t.sources[0].sub}</small></div><b>●</b></div>
-                  <div className="source-item"><span className="source-icon wiki-icon">C</span><div><strong>{t.sources[1].name}</strong><small>{t.sources[1].sub}</small></div><b>●</b></div>
-                  <div className="source-item"><span className="source-icon task-icon">T</span><div><strong>{t.sources[2].name}</strong><small>{t.sources[2].sub}</small></div><b>●</b></div>
-                  <div className="source-footer"><span>3</span> {t.connectedSources}</div>
-                </aside>
-
-                <div className="workspace-panel">
-                  <div className="workspace-topline">
-                    <span>{t.newAnalysis}</span>
-                    <span className="live-chip"><i /> LIVE</span>
-                  </div>
-
-                  <div className="user-query">{t.userQuery}</div>
-
-                  <div className="workflow-strip">
-                    <div className={`workflow-node ${(t.workflowSteps[0].status as string) === "Running" ? "running" : "done"}`}><span>01</span><strong>{t.workflowSteps[0].label}</strong><small>{t.workflowSteps[0].status}</small></div>
-                    <i>→</i>
-                    <div className={`workflow-node ${(t.workflowSteps[1].status as string) === "Running" ? "running" : "done"}`}><span>02</span><strong>{t.workflowSteps[1].label}</strong><small>{t.workflowSteps[1].status}</small></div>
-                    <i>→</i>
-                    <div className={`workflow-node ${(t.workflowSteps[2].status as string) === "Running" ? "running" : "done"}`}><span>03</span><strong>{t.workflowSteps[2].label}</strong><small>{t.workflowSteps[2].status}</small></div>
-                  </div>
-
-                  <div className="answer-card">
-                    <div className="answer-head">
-                      <div><span className="ai-mark">✦</span><strong>{t.answerReady}</strong></div>
-                      <span>3 sources</span>
-                    </div>
-                    <p>{t.answerText}</p>
-                    <div className="insight-row">
-                      <div><small>{t.insightRow[0].label}</small><strong>{t.insightRow[0].value}</strong></div>
-                      <div><small>{t.insightRow[1].label}</small><strong>{t.insightRow[1].value}</strong></div>
-                      <div><small>{t.insightRow[2].label}</small><strong className="status-testing">{t.insightRow[2].value}</strong></div>
-                    </div>
-                    <div className="citation-row">{t.citations.map((c) => <span key={c}>{c}</span>)}</div>
-                  </div>
-
-                  <div className="prompt-bar"><span>{t.promptBar}</span><span className="prompt-send">↑</span></div>
-                </div>
+                <img
+                  className="product-demo-shot"
+                  src="/product-demo/hero-chat.png"
+                  alt={t.productDemoAlt}
+                  width={1440}
+                  height={636}
+                />
               </div>
             </div>
 
