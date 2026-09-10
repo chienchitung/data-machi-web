@@ -7,7 +7,6 @@ import { localeHref, asLocale } from "../i18n";
 
 const copy = {
   zh: {
-    releasePill: "30 天企業 AI 工作流學習系列",
     heroTitleLine1: "把企業知識、",
     heroTitleLine2: "工具與決策，",
     heroTitleLine3a: "串成真正能工作的",
@@ -100,7 +99,6 @@ const copy = {
     finalCta: "開始閱讀",
   },
   en: {
-    releasePill: "30-Day Enterprise AI Workflow Learning Series",
     heroTitleLine1: "Enterprise AI",
     heroTitleLine2: "",
     heroTitleLine3a: "that actually",
@@ -210,11 +208,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         <div className="hero-inner section-shell">
           <div className="hero-copy">
-            <div className="release-pill">
-              <span className="release-dot" />
-              {t.releasePill}
-            </div>
-
             <h1>
               {t.heroTitleLine1}
               {t.heroTitleLine2 && (
@@ -261,7 +254,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div className="window-body">
                 <img
                   className="product-demo-shot"
-                  src="/product-demo/hero-chat.png"
+                  src={`/product-demo/hero-chat-${locale}.png`}
                   alt={t.productDemoAlt}
                   width={1440}
                   height={816}
