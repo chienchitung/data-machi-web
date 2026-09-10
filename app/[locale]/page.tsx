@@ -7,10 +7,8 @@ import { localeHref, asLocale } from "../i18n";
 
 const copy = {
   zh: {
-    heroTitleLine1: "把企業知識、",
-    heroTitleLine2: "工具與決策，",
-    heroTitleLine3a: "串成真正能工作的",
-    heroTitleLine3b: "AI",
+    heroTitleMain: "真正能工作的",
+    heroTitleAccent: "企業 AI",
     heroDescription: "從 RAG 到 Agentic Workflow，30 天打造真正能完成工作的企業 AI。",
     startReading: "開始閱讀 30 天系列",
     exploreProduct: "探索產品",
@@ -99,10 +97,8 @@ const copy = {
     finalCta: "開始閱讀",
   },
   en: {
-    heroTitleLine1: "Enterprise AI",
-    heroTitleLine2: "",
-    heroTitleLine3a: "that actually",
-    heroTitleLine3b: "works",
+    heroTitleMain: "Enterprise AI ",
+    heroTitleAccent: "that actually works",
     heroDescription: "A free 30-day path from RAG to Agentic Workflow — enterprise AI that reliably gets work done.",
     startReading: "Start the 30-Day Series",
     exploreProduct: "Explore the Product",
@@ -209,18 +205,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="hero-inner section-shell">
           <div className="hero-copy">
             <h1>
-              {t.heroTitleLine1}
-              {t.heroTitleLine2 && (
-                <>
-                  <br />
-                  {t.heroTitleLine2}
-                </>
-              )}
-              <span>
-                {t.heroTitleLine3a}
-                <br />
-                {t.heroTitleLine3b}
-              </span>
+              {t.heroTitleMain}
+              <span>{t.heroTitleAccent}</span>
             </h1>
 
             <p className="hero-description">{t.heroDescription}</p>
