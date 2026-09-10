@@ -340,7 +340,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>
-              <div className="source-tags">{item.sources.map((source) => <span key={source}>{source}</span>)}</div>
+              <div className="source-tags">
+                {item.sources.flatMap((source, i) =>
+                  i === 0
+                    ? [<span key={source}>{source}</span>]
+                    : [<i key={`${source}-arrow`}>→</i>, <span key={source}>{source}</span>]
+                )}
+              </div>
             </article>
           ))}
         </div>
