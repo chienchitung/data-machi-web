@@ -201,6 +201,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow hero-glow-one" aria-hidden="true" />
+        <div className="hero-glow hero-glow-two" aria-hidden="true" />
 
         <div className="hero-inner section-shell">
           <div className="hero-copy">
