@@ -264,7 +264,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   src="/product-demo/hero-chat.png"
                   alt={t.productDemoAlt}
                   width={1440}
-                  height={636}
+                  height={816}
                 />
               </div>
             </div>

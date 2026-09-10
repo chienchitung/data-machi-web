@@ -205,7 +205,7 @@ button, input { font: inherit; }
 .hero-glow { position: absolute; border-radius: 999px; filter: blur(4px); pointer-events: none; }
 .hero-glow-one { top: -200px; right: 8%; width: 460px; height: 460px; background: radial-gradient(circle, rgba(74, 222, 128, .16), rgba(74, 222, 128, 0) 68%); }
 .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 52px; padding-block: 86px 92px; }
-.hero-copy { position: relative; z-index: 2; }
+.hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .release-pill {
   display: inline-flex;
   align-items: center;
